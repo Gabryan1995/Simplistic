@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name = "Simplistic - Simple Checklist App"
