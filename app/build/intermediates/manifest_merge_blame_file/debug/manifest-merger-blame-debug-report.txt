@@ -11,7 +11,7 @@
 9-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:5:5-19:19
+11-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:5:5-25:19
 12        android:allowBackup="true"
 12-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -20,28 +20,41 @@
 15        android:icon="@mipmap/ic_launcher"
 15-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:7:9-43
 16        android:label="@string/app_name"
-16-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:8:9-41
+16-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:9:9-41
 17        android:roundIcon="@mipmap/ic_launcher_round"
-17-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:9:9-54
+17-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:8:9-54
 18        android:supportsRtl="true"
 18-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:10:9-35
 19        android:testOnly="true"
 20        android:theme="@style/AppTheme" >
 20-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:11:9-40
-21        <activity android:name="com.example.checklistapp.MainActivity" >
-21-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:12:9-18:20
-21-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:12:19-47
-22            <intent-filter>
-22-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:13:13-17:29
-23                <action android:name="android.intent.action.MAIN" />
-23-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:14:17-69
-23-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:14:25-66
-24
-25                <category android:name="android.intent.category.LAUNCHER" />
-25-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:16:17-77
-25-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:16:27-74
-26            </intent-filter>
-27        </activity>
-28    </application>
-29
-30</manifest>
+21        <activity
+21-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:12:9-24:20
+22            android:name="com.example.checklistapp.MainActivity"
+22-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:13:13-41
+23            android:launchMode="singleTop" >
+23-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:14:13-43
+24            <intent-filter>
+24-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:15:13-19:29
+25                <action android:name="android.intent.action.MAIN" />
+25-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:16:17-69
+25-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:16:25-66
+26                <action android:name="android.intent.action.SEARCH" />
+26-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:17:17-71
+26-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:17:25-68
+27
+28                <category android:name="android.intent.category.LAUNCHER" />
+28-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:18:17-77
+28-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:18:27-74
+29            </intent-filter>
+30
+31            <meta-data
+31-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:21:13-23:54
+32                android:name="android.app.searchable"
+32-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:22:17-54
+33                android:resource="@xml/searchable" />
+33-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:23:17-51
+34        </activity>
+35    </application>
+36
+37</manifest>
