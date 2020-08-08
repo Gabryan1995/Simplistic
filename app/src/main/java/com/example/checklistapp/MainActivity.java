@@ -20,18 +20,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Get Search Query
         handleIntent(getIntent());
 
+        // Handle creating a new Checklist
         FloatingActionButton fab = findViewById(R.id.new_checklist_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivity(new Intent(MainActivity.this, ChecklistActivity.class));
             }
         });
     }
 
+    // ** Setting up Search Functionality ** //
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -57,4 +60,5 @@ public class MainActivity extends AppCompatActivity {
             Snackbar.make(findViewById(android.R.id.content).getRootView(), "Handle query: " + query, Snackbar.LENGTH_LONG).setAction("Action", null).show();
         }
     }
+    // ** Setting up Search Functionality ** //
 }

@@ -22,6 +22,15 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
+
+        <activity
+            android:name=".ChecklistActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>
