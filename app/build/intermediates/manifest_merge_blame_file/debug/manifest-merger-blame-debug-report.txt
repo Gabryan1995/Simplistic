@@ -25,50 +25,51 @@
 17-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:8:9-54
 18        android:supportsRtl="true"
 18-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:10:9-35
-19        android:theme="@style/AppTheme" >
-19-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:11:9-40
-20        <activity
-20-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:12:9-24:20
-21            android:name="com.example.checklistapp.MainActivity"
-21-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:13:13-41
-22            android:launchMode="singleTop" >
-22-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:14:13-43
-23            <intent-filter>
-23-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:15:13-19:29
-24                <action android:name="android.intent.action.MAIN" />
-24-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:16:17-69
-24-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:16:25-66
-25                <action android:name="android.intent.action.SEARCH" />
-25-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:17:17-71
-25-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:17:25-68
-26
-27                <category android:name="android.intent.category.LAUNCHER" />
-27-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:18:17-77
-27-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:18:27-74
-28            </intent-filter>
-29
-30            <meta-data
-30-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:21:13-23:54
-31                android:name="android.app.searchable"
-31-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:22:17-54
-32                android:resource="@xml/searchable" />
-32-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:23:17-51
-33        </activity>
-34        <activity
-34-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:26:9-33:20
-35            android:name="com.example.checklistapp.ChecklistActivity"
-35-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:27:13-46
-36            android:label=""
-36-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:29:13-29
-37            android:parentActivityName="com.example.checklistapp.MainActivity" >
-37-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:28:13-55
-38            <meta-data
-38-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:30:13-32:49
-39                android:name="android.support.PARENT_ACTIVITY"
-39-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:31:17-63
-40                android:value=".MainActivity" />
-40-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:32:17-46
-41        </activity>
-42    </application>
-43
-44</manifest>
+19        android:testOnly="true"
+20        android:theme="@style/AppTheme" >
+20-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:11:9-40
+21        <activity
+21-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:12:9-24:20
+22            android:name="com.example.checklistapp.MainActivity"
+22-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:13:13-41
+23            android:launchMode="singleTop" >
+23-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:14:13-43
+24            <intent-filter>
+24-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:15:13-19:29
+25                <action android:name="android.intent.action.MAIN" />
+25-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:16:17-69
+25-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:16:25-66
+26                <action android:name="android.intent.action.SEARCH" />
+26-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:17:17-71
+26-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:17:25-68
+27
+28                <category android:name="android.intent.category.LAUNCHER" />
+28-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:18:17-77
+28-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:18:27-74
+29            </intent-filter>
+30
+31            <meta-data
+31-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:21:13-23:54
+32                android:name="android.app.searchable"
+32-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:22:17-54
+33                android:resource="@xml/searchable" />
+33-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:23:17-51
+34        </activity>
+35        <activity
+35-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:26:9-33:20
+36            android:name="com.example.checklistapp.ChecklistActivity"
+36-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:27:13-46
+37            android:label=""
+37-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:29:13-29
+38            android:parentActivityName="com.example.checklistapp.MainActivity" >
+38-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:28:13-55
+39            <meta-data
+39-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:30:13-32:49
+40                android:name="android.support.PARENT_ACTIVITY"
+40-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:31:17-63
+41                android:value=".MainActivity" />
+41-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:32:17-46
+42        </activity>
+43    </application>
+44
+45</manifest>

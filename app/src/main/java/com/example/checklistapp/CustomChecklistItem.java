@@ -9,17 +9,15 @@ import android.view.View;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.res.ResourcesCompat;
 
-import com.example.checklistapp.R;
-
 public class CustomChecklistItem extends AppCompatEditText {
 
     Drawable mCheckboxButtonImage;
-    private boolean isCheckboxButtonClicked;
+    private boolean isChecked;
 
     private void init() {
         mCheckboxButtonImage = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_checkbox_deselected, null);
         setCompoundDrawablesRelativeWithIntrinsicBounds(mCheckboxButtonImage, null, null, null);
-        isCheckboxButtonClicked = false;
+        isChecked = false;
 
         setOnTouchListener(new OnTouchListener() {
             @Override
@@ -30,11 +28,11 @@ public class CustomChecklistItem extends AppCompatEditText {
                     checkboxButtonStart = mCheckboxButtonImage.getIntrinsicWidth() + getPaddingStart();
 
                     if (event.getX() < checkboxButtonStart) {
-                        isCheckboxButtonClicked = !isCheckboxButtonClicked;
+                        isChecked = !isChecked;
                     }
 
                     if (event.getAction() == MotionEvent.ACTION_UP) {
-                        if (isCheckboxButtonClicked) {
+                        if (isChecked) {
                             mCheckboxButtonImage = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_checkbox_selected, null);
                         } else {
                             mCheckboxButtonImage = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_checkbox_deselected, null);
@@ -45,6 +43,10 @@ public class CustomChecklistItem extends AppCompatEditText {
                 return false;
             }
         });
+    }
+
+    void setChecked(boolean checked) {
+        isChecked = checked;
     }
 
     public CustomChecklistItem(Context context) {

@@ -1531,7 +1531,9 @@ id chains
 id checkbox
 id checked
 id checklist_item_name
-id checklists_recycler_view
+id checklist_item_recyclerview
+id checklist_recyclerview
+id checklist_title
 id chip
 id chip1
 id chip2
@@ -1634,7 +1636,6 @@ id mtrl_picker_text_input_range_end
 id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
-id my_edit_text
 id navigation_header_container
 id never
 id new_checklist_fab
@@ -1821,7 +1822,6 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_checklist
 layout activity_main
-layout custom_checklist_item
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
