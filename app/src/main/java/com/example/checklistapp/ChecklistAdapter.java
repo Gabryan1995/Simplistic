@@ -1,21 +1,28 @@
 package com.example.checklistapp;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.ViewHolder> {
+public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.ChecklistViewHolder> {
+
+    private Context context;
+
+    ChecklistAdapter(Context context) {
+        this.context = context;
+    }
 
     @NonNull
     @Override
-    public ChecklistAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ChecklistAdapter.ChecklistViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return null;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChecklistAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ChecklistAdapter.ChecklistViewHolder holder, int position) {
 
     }
 
@@ -24,10 +31,10 @@ public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.View
         return 0;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ChecklistViewHolder extends RecyclerView.ViewHolder {
         private CustomChecklistItem customChecklistItem;
 
-        public ViewHolder(View view) {
+        public ChecklistViewHolder(View view) {
             super(view);
             customChecklistItem = (CustomChecklistItem) view;
         }

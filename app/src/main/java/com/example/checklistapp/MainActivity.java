@@ -1,7 +1,11 @@
 package com.example.checklistapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -14,24 +18,157 @@ import android.view.View;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
+    ArrayList<Checklist> checklists;
+    RecyclerView recyclerView;
+    MainAdapter mainAdapter;
+
+    // Keys
+    public static final int NEW_CHECKLIST_REQUEST_CODE = 0;
+
+    public static final String FILE_NAME = "checklists.json";
+    public static final String CHECKLIST_OBJECT_KEY = "checklists";
+    public static final String TITLE_KEY = "title";
+
+    public static final String INTENT_TITLE_KEY = "new_checklist_title";
+    public static final String INTENT_CHECKBOXES_STATUS_KEY = "new_checklist_checkbox_status";
+    public static final String INTENT_TASK_KEY = "new_checklist_tasks";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Get Search Query
-        handleIntent(getIntent());
+        recyclerView = (RecyclerView) findViewById(R.id.checklist_recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Handle creating a new Checklist
+        checklists = new ArrayList<>();
+
+        mainAdapter = new MainAdapter(MainActivity.this, checklists);
+        recyclerView.setAdapter(mainAdapter);
+
+        if (isFilePresent()) {
+            loadData();
+        }
+
+        // TODO:
+        // Handle accessing and editing an existing checklist.
+
+
+        // TODO:
+        // Handle deletion from swiping items off the screen or rearranging items by moving them.
+        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+            }
+        });
+
+        // Handle creating a new Checklist.
         FloatingActionButton fab = findViewById(R.id.new_checklist_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ChecklistActivity.class));
+                startActivityForResult(new Intent(MainActivity.this, ChecklistActivity.class), NEW_CHECKLIST_REQUEST_CODE);
             }
         });
+
+        // Get Search Query
+        handleIntent(getIntent());
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case NEW_CHECKLIST_REQUEST_CODE: {
+                if (resultCode == RESULT_OK) {
+                    String title = data.getStringExtra(INTENT_TITLE_KEY);
+
+                    boolean[] checkboxesArray = data.getBooleanArrayExtra(INTENT_CHECKBOXES_STATUS_KEY);
+                    ArrayList<Boolean> checkboxes = new ArrayList<>();
+                    for (int i = 0; i < checkboxesArray.length; i++) {
+                        checkboxes.add(checkboxesArray[i]);
+                    }
+
+                    ArrayList<String> task = data.getStringArrayListExtra(INTENT_TASK_KEY);
+
+                    checklists.add(new Checklist(title, checkboxes, task));
+                }
+            }
+        }
+
+    }
+
+    public void loadData() {
+        try {
+            JSONObject obj = new JSONObject(loadJSONFromAsset());
+            JSONArray checklistArray = obj.getJSONArray(CHECKLIST_OBJECT_KEY);
+
+            checklists.clear();
+
+            for (int i = 0; i < checklistArray.length(); i++) {
+                String title = checklistArray.getJSONObject(i).getString(TITLE_KEY);
+                JSONArray checklistItemArray = checklistArray.getJSONArray(i);
+                ArrayList<Boolean> checkboxes = new ArrayList<>();
+                ArrayList<String> tasks = new ArrayList<>();
+
+                for (int j = 0; j < checklistItemArray.length(); j++) {
+                    checkboxes.add(checklistItemArray.getBoolean(j));
+                    tasks.add(checklistItemArray.getString(j));
+                }
+                checklists.add(new Checklist(title, checkboxes, tasks));
+
+                mainAdapter.notifyDataSetChanged();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String loadJSONFromAsset() {
+        try {
+            FileInputStream fileInputStream = getApplicationContext().openFileInput(FILE_NAME);
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            StringBuilder stringBuilder = new StringBuilder();
+            String currentLine;
+            while ((currentLine = bufferedReader.readLine()) != null) {
+                stringBuilder.append(currentLine);
+            }
+            return stringBuilder.toString();
+        } catch (FileNotFoundException fileNotFound) {
+            return null;
+        } catch (IOException ioException) {
+            return null;
+        }
+    }
+
+    public boolean isFilePresent() {
+        String path = getApplicationContext().getFilesDir().getAbsolutePath() + "/" + FILE_NAME;
+        File file = new File(path);
+        return file.exists();
     }
 
     // ** Setting up Search Functionality ** //
