@@ -1492,6 +1492,7 @@ id accessibility_custom_action_6
 id accessibility_custom_action_7
 id accessibility_custom_action_8
 id accessibility_custom_action_9
+id action_addtask
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -1891,6 +1892,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu menu_checklist
 menu menu_main
 mipmap ic_launcher
 mipmap ic_launcher_round

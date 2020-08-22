@@ -30,6 +30,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,11 +39,12 @@ public class MainActivity extends AppCompatActivity {
     MainAdapter mainAdapter;
 
     // Keys
-    public static final int NEW_CHECKLIST_REQUEST_CODE = 0;
+    private static final int NEW_CHECKLIST_REQUEST_CODE = 0;
+    private static final int EDITED_CHECKLIST_REQUEST_CODE = 1;
 
-    public static final String FILE_NAME = "checklists.json";
-    public static final String CHECKLIST_OBJECT_KEY = "checklists";
-    public static final String TITLE_KEY = "title";
+    private static final String FILE_NAME = "checklists.json";
+    private static final String CHECKLIST_OBJECT_KEY = "checklists";
+    private static final String TITLE_KEY = "title";
 
     public static final String INTENT_TITLE_KEY = "new_checklist_title";
     public static final String INTENT_CHECKBOXES_STATUS_KEY = "new_checklist_checkbox_status";
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = (RecyclerView) findViewById(R.id.checklist_recyclerview);
+        recyclerView = findViewById(R.id.checklist_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         checklists = new ArrayList<>();
@@ -71,15 +73,22 @@ public class MainActivity extends AppCompatActivity {
 
         // TODO:
         // Handle deletion from swiping items off the screen or rearranging items by moving them.
-        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT | ItemTouchHelper.DOWN | ItemTouchHelper.UP,
+                                                                                        ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                return false;
+                int from = viewHolder.getAdapterPosition();
+                int to = target.getAdapterPosition();
+
+                Collections.swap(checklists, from, to);
+                mainAdapter.notifyItemMoved(from, to);
+                return true;
             }
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-
+                checklists.remove(viewHolder.getAdapterPosition());
+                mainAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
             }
         });
 
@@ -88,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivityForResult(new Intent(MainActivity.this, ChecklistActivity.class), NEW_CHECKLIST_REQUEST_CODE);
+                startActivity(new Intent(MainActivity.this, ChecklistActivity.class));
+                //startActivityForResult(new Intent(MainActivity.this, ChecklistActivity.class), NEW_CHECKLIST_REQUEST_CODE);
             }
         });
 
@@ -102,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
-            case NEW_CHECKLIST_REQUEST_CODE: {
+            case NEW_CHECKLIST_REQUEST_CODE:
                 if (resultCode == RESULT_OK) {
                     String title = data.getStringExtra(INTENT_TITLE_KEY);
 
@@ -116,7 +126,11 @@ public class MainActivity extends AppCompatActivity {
 
                     checklists.add(new Checklist(title, checkboxes, task));
                 }
-            }
+            case EDITED_CHECKLIST_REQUEST_CODE:
+                if (resultCode == RESULT_OK) {
+                    // TODO: HANDLE EDITED CHECKLIST SAVING
+
+                }
         }
 
     }

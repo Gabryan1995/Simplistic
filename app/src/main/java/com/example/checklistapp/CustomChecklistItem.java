@@ -1,65 +1,73 @@
 package com.example.checklistapp;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
-import androidx.appcompat.widget.AppCompatEditText;
-import androidx.core.content.res.ResourcesCompat;
+public class CustomChecklistItem extends LinearLayout implements View.OnClickListener {
 
-public class CustomChecklistItem extends AppCompatEditText {
-
-    Drawable mCheckboxButtonImage;
+    ImageView mCheckboxImage;
+    EditText task;
     private boolean isChecked;
+    Context context;
 
-    private void init() {
-        mCheckboxButtonImage = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_checkbox_deselected, null);
-        setCompoundDrawablesRelativeWithIntrinsicBounds(mCheckboxButtonImage, null, null, null);
-        isChecked = false;
-
-        setOnTouchListener(new OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if ((getCompoundDrawablesRelative()[0] != null)) {
-                    float checkboxButtonStart;
-
-                    checkboxButtonStart = mCheckboxButtonImage.getIntrinsicWidth() + getPaddingStart();
-
-                    if (event.getX() < checkboxButtonStart) {
-                        isChecked = !isChecked;
-                    }
-
-                    if (event.getAction() == MotionEvent.ACTION_UP) {
-                        if (isChecked) {
-                            mCheckboxButtonImage = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_checkbox_selected, null);
-                        } else {
-                            mCheckboxButtonImage = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_checkbox_deselected, null);
-                        }
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
+    CustomChecklistItem(Context context) {
+        super(context);
+        this.context = context;
+        init();
     }
 
-    void setChecked(boolean checked) {
+    CustomChecklistItem(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        this.context = context;
+        init();
+    }
+    CustomChecklistItem(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        this.context = context;
+        init();
+    }
+
+    private void init() {
+        mCheckboxImage = new ImageView(context);
+        task = new EditText(context);
+
+        isChecked = false;
+        mCheckboxImage.setBackgroundResource(R.drawable.ic_checkbox_deselected);
+        task.setText("");
+
+        task.setDuplicateParentStateEnabled(true);
+        task.setSingleLine(true);
+
+        mCheckboxImage.setOnClickListener(this);
+        task.setOnClickListener(this);
+
+        setOrientation(LinearLayout.HORIZONTAL);
+        addView(mCheckboxImage, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        addView(task, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mCheckboxImage) {
+            isChecked = !isChecked;
+            if (isChecked) {
+                mCheckboxImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_checkbox_selected));
+            } else {
+                mCheckboxImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_checkbox_deselected));
+            }
+        }
+    }
+
+    public void setChecked(boolean checked) {
         isChecked = checked;
     }
 
-    public CustomChecklistItem(Context context) {
-        super(context);
-        init();
-    }
-
-    public CustomChecklistItem(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
-    }
-    public CustomChecklistItem(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+    public void setTask(String newTask) {
+        task.setText(newTask);
     }
 }
