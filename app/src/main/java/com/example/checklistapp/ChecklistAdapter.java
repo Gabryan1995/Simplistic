@@ -1,9 +1,12 @@
 package com.example.checklistapp;
 
 import android.content.Context;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,10 +17,12 @@ import java.util.ArrayList;
 
 public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.ChecklistViewHolder> {
 
+    private Context context;
     private ArrayList<Boolean> checkboxes;
     private ArrayList<String> tasks;
 
-    ChecklistAdapter(Checklist checklist) {
+    ChecklistAdapter(Context context, Checklist checklist) {
+        this.context = context;
         checkboxes = checklist.getCheckboxes();
         tasks = checklist.getTasks();
     }
@@ -25,15 +30,29 @@ public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.Chec
     @NonNull
     @Override
     public ChecklistAdapter.ChecklistViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        CustomChecklistItem itemView = new CustomChecklistItem(parent.getContext());
+        final CustomChecklistItem itemView = new CustomChecklistItem(parent.getContext());
         itemView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+
+        itemView.task.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                itemView.task.setCursorVisible(false);
+                if (event != null && (actionId == EditorInfo.IME_ACTION_DONE)){
+                    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(itemView.task.getApplicationWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+                }
+                return false;
+            }
+        });
+
         return new ChecklistViewHolder(itemView, this);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChecklistAdapter.ChecklistViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ChecklistAdapter.ChecklistViewHolder holder, final int position) {
         holder.customChecklistItem.setChecked(checkboxes.get(position));
         holder.customChecklistItem.setTask(tasks.get(position));
+        holder.customChecklistItem.task.requestFocus();
     }
 
     @Override

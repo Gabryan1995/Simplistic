@@ -27,12 +27,11 @@ public class ChecklistActivity extends AppCompatActivity {
 
     // TODO: HANDLE CHECKLIST ACTIVITY
     // - Send Checklist back to MainActivity
-    // - Handle setting up a new checklist, or taking data to edit an existing checklist.
+    // - Handle taking data to edit an existing checklist.
 
     private Checklist checklist;
 
     private EditText title;
-    private ArrayList<CustomChecklistItem> checklistItems;
 
     RecyclerView recyclerView;
     ChecklistAdapter checklistAdapter;
@@ -59,9 +58,8 @@ public class ChecklistActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.checklist_item_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addItemDecoration(new SpacingItemDecoration(25));
 
-        checklistAdapter = new ChecklistAdapter(checklist);
+        checklistAdapter = new ChecklistAdapter(this, checklist);
         recyclerView.setAdapter(checklistAdapter);
     }
 
@@ -108,26 +106,9 @@ public class ChecklistActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_addtask:
                 checklist.addEmptyTask();
-                checklistAdapter.notifyItemInserted(checklist.size());
                 recyclerView.smoothScrollToPosition(checklist.size());
+                checklistAdapter.notifyItemInserted(checklist.size());
         }
         return false;
     }
-
-    public class SpacingItemDecoration extends RecyclerView.ItemDecoration {
-        private int spacing;
-
-        SpacingItemDecoration(int space) {
-            this.spacing = space;
-        }
-
-        @Override
-        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-            outRect.bottom = spacing;
-
-            if (parent.getChildLayoutPosition(view) == 0)
-                outRect.top = spacing;
-        }
-    }
-
 }

@@ -1,9 +1,12 @@
 package com.example.checklistapp;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -39,15 +42,18 @@ public class CustomChecklistItem extends LinearLayout implements View.OnClickLis
         isChecked = false;
         mCheckboxImage.setBackgroundResource(R.drawable.ic_checkbox_deselected);
         task.setText("");
-
-        task.setDuplicateParentStateEnabled(true);
+        task.setTextSize(22);
         task.setSingleLine(true);
+        task.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         mCheckboxImage.setOnClickListener(this);
         task.setOnClickListener(this);
 
         setOrientation(LinearLayout.HORIZONTAL);
-        addView(mCheckboxImage, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        ViewGroup.LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        ((LayoutParams) params).gravity = Gravity.CENTER;
+
+        addView(mCheckboxImage, params);
         addView(task, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
     }
 
@@ -57,9 +63,14 @@ public class CustomChecklistItem extends LinearLayout implements View.OnClickLis
             isChecked = !isChecked;
             if (isChecked) {
                 mCheckboxImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_checkbox_selected));
+                task.setEnabled(false);
             } else {
                 mCheckboxImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_checkbox_deselected));
+                task.setEnabled(true);
             }
+        } else if (view.getId() == task.getId()) {
+            task.requestFocus();
+            task.setCursorVisible(true);
         }
     }
 
