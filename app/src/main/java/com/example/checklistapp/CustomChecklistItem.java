@@ -1,7 +1,6 @@
 package com.example.checklistapp;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -11,9 +10,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.core.content.res.ResourcesCompat;
+
 public class CustomChecklistItem extends LinearLayout implements View.OnClickListener {
 
+    // TODO:
+    // Add remove task button.
+    
     ImageView mCheckboxImage;
+    ImageView mDeleteButtonImage;
     EditText task;
     private boolean isChecked;
     Context context;
@@ -37,10 +42,12 @@ public class CustomChecklistItem extends LinearLayout implements View.OnClickLis
 
     private void init() {
         mCheckboxImage = new ImageView(context);
+        mDeleteButtonImage = new ImageView(context);
         task = new EditText(context);
 
         isChecked = false;
         mCheckboxImage.setBackgroundResource(R.drawable.ic_checkbox_deselected);
+        mDeleteButtonImage.setBackgroundResource(R.drawable.ic_delete_opaque);
         task.setText("");
         task.setTextSize(22);
         task.setSingleLine(true);
@@ -50,11 +57,16 @@ public class CustomChecklistItem extends LinearLayout implements View.OnClickLis
         task.setOnClickListener(this);
 
         setOrientation(LinearLayout.HORIZONTAL);
-        ViewGroup.LayoutParams params = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        ((LayoutParams) params).gravity = Gravity.CENTER;
 
-        addView(mCheckboxImage, params);
-        addView(task, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        ViewGroup.LayoutParams checkboxParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        ((LayoutParams) checkboxParams).gravity = Gravity.CENTER;
+
+        ViewGroup.LayoutParams taskParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        ((LayoutParams) taskParams).weight = 1;
+
+        addView(mCheckboxImage, checkboxParams);
+        addView(task, taskParams);
+        addView(mDeleteButtonImage, checkboxParams);
     }
 
     @Override

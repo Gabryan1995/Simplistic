@@ -58,7 +58,7 @@ public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.Chec
     @Override
     public int getItemCount() { return checkboxes.size(); }
 
-    public class ChecklistViewHolder extends RecyclerView.ViewHolder {
+    public class ChecklistViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private CustomChecklistItem customChecklistItem;
         final ChecklistAdapter mAdapter;
 
@@ -66,10 +66,21 @@ public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.Chec
             super(view);
             customChecklistItem = (CustomChecklistItem) view;
             mAdapter = adapter;
+
+            customChecklistItem.mDeleteButtonImage.setOnClickListener(this);
         }
 
         public CustomChecklistItem getCustomChecklistItem() {
             return customChecklistItem;
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (view.equals(customChecklistItem.mDeleteButtonImage)) {
+                mAdapter.checkboxes.remove(getAdapterPosition());
+                mAdapter.tasks.remove(getAdapterPosition());
+                notifyItemRemoved(getAdapterPosition());
+            }
         }
     }
 }

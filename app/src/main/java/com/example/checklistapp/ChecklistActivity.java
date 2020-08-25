@@ -64,9 +64,9 @@ public class ChecklistActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void onBackPressed() {
         returnChecklist();
+        super.onBackPressed();
     }
 
     private void returnChecklist() {
@@ -106,8 +106,8 @@ public class ChecklistActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_addtask:
                 checklist.addEmptyTask();
-                recyclerView.smoothScrollToPosition(checklist.size());
                 checklistAdapter.notifyItemInserted(checklist.size());
+                recyclerView.smoothScrollToPosition(checklist.size());
         }
         return false;
     }

@@ -97,8 +97,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ChecklistActivity.class));
-                //startActivityForResult(new Intent(MainActivity.this, ChecklistActivity.class), NEW_CHECKLIST_REQUEST_CODE);
+                startActivityForResult(new Intent(MainActivity.this, ChecklistActivity.class), NEW_CHECKLIST_REQUEST_CODE);
             }
         });
 
@@ -125,6 +124,8 @@ public class MainActivity extends AppCompatActivity {
                     ArrayList<String> task = data.getStringArrayListExtra(INTENT_TASK_KEY);
 
                     checklists.add(new Checklist(title, checkboxes, task));
+
+                    mainAdapter.notifyDataSetChanged();
                 }
             case EDITED_CHECKLIST_REQUEST_CODE:
                 if (resultCode == RESULT_OK) {

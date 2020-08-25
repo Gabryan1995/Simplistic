@@ -1409,6 +1409,7 @@ drawable design_snackbar_background
 drawable ic_add
 drawable ic_checkbox_deselected
 drawable ic_checkbox_selected
+drawable ic_delete_opaque
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_checked_circle
