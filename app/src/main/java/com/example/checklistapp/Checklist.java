@@ -15,7 +15,7 @@ public class Checklist {
         this.title = "";
         this.checkboxes.add(false);
         this.tasks.add("");
-        this.size = checkboxes.size();
+        this.size = 1;
     }
 
     public Checklist(String title, ArrayList<Boolean> checkboxes, ArrayList<String> tasks) {

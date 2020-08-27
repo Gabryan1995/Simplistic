@@ -1,14 +1,11 @@
 package com.example.checklistapp;
 
+import android.app.Application;
 import android.content.Context;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,70 +14,86 @@ import java.util.ArrayList;
 
 public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.ChecklistViewHolder> {
 
-    private Context context;
-    private ArrayList<Boolean> checkboxes;
-    private ArrayList<String> tasks;
+    public static ArrayList<Boolean> checkboxes;
+    public static ArrayList<String> tasks;
 
-    ChecklistAdapter(Context context, Checklist checklist) {
-        this.context = context;
+    ChecklistAdapter(Checklist checklist) {
         checkboxes = checklist.getCheckboxes();
         tasks = checklist.getTasks();
+    }
+
+    public class ChecklistViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public CustomChecklistItem customChecklistItem;
+        public CustomTaskListener customTaskListener;
+
+        public ChecklistViewHolder(View view, CustomTaskListener customTaskListener) {
+            super(view);
+            customChecklistItem = (CustomChecklistItem) view;
+
+            customChecklistItem.mCheckboxImage.setOnClickListener(this);
+            this.customTaskListener = customTaskListener;
+            customChecklistItem.task.addTextChangedListener(customTaskListener);
+            customChecklistItem.mDeleteButtonImage.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (view.equals(customChecklistItem.mCheckboxImage)) {
+                customChecklistItem.isChecked = !customChecklistItem.isChecked;
+                if (customChecklistItem.isChecked) {
+                    customChecklistItem.mCheckboxImage.setImageDrawable(customChecklistItem.getResources().getDrawable(R.drawable.ic_checkbox_selected));
+                    customChecklistItem.task.setEnabled(false);
+                } else {
+                    customChecklistItem.mCheckboxImage.setImageDrawable(customChecklistItem.getResources().getDrawable(R.drawable.ic_checkbox_deselected));
+                    customChecklistItem.task.setEnabled(true);
+                }
+                checkboxes.set(getAdapterPosition(), customChecklistItem.isChecked);
+            } else if (view.equals(customChecklistItem.mDeleteButtonImage)) {
+                checkboxes.remove(getAdapterPosition());
+                tasks.remove(getAdapterPosition());
+                notifyItemRemoved(getAdapterPosition());
+            }
+        }
     }
 
     @NonNull
     @Override
     public ChecklistAdapter.ChecklistViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        final CustomChecklistItem itemView = new CustomChecklistItem(parent.getContext());
+        CustomChecklistItem itemView = new CustomChecklistItem(parent.getContext());
         itemView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-        itemView.task.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                itemView.task.setCursorVisible(false);
-                if (event != null && (actionId == EditorInfo.IME_ACTION_DONE)){
-                    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(itemView.task.getApplicationWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-                }
-                return false;
-            }
-        });
-
-        return new ChecklistViewHolder(itemView, this);
+        return new ChecklistViewHolder(itemView, new CustomTaskListener());
     }
 
     @Override
     public void onBindViewHolder(@NonNull final ChecklistAdapter.ChecklistViewHolder holder, final int position) {
-        holder.customChecklistItem.setChecked(checkboxes.get(position));
-        holder.customChecklistItem.setTask(tasks.get(position));
-        holder.customChecklistItem.task.requestFocus();
+        holder.customTaskListener.setPosition(position);
+        holder.customChecklistItem.setTask(checkboxes.get(position), tasks.get(position));
     }
 
     @Override
     public int getItemCount() { return checkboxes.size(); }
 
-    public class ChecklistViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private CustomChecklistItem customChecklistItem;
-        final ChecklistAdapter mAdapter;
+    private class CustomTaskListener implements TextWatcher {
+        private int position;
 
-        public ChecklistViewHolder(View view, ChecklistAdapter adapter) {
-            super(view);
-            customChecklistItem = (CustomChecklistItem) view;
-            mAdapter = adapter;
-
-            customChecklistItem.mDeleteButtonImage.setOnClickListener(this);
-        }
-
-        public CustomChecklistItem getCustomChecklistItem() {
-            return customChecklistItem;
+        public void setPosition(int position) {
+            this.position = position;
         }
 
         @Override
-        public void onClick(View view) {
-            if (view.equals(customChecklistItem.mDeleteButtonImage)) {
-                mAdapter.checkboxes.remove(getAdapterPosition());
-                mAdapter.tasks.remove(getAdapterPosition());
-                notifyItemRemoved(getAdapterPosition());
-            }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            tasks.set(position, s.toString());
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
         }
     }
 }

@@ -1,21 +1,22 @@
 package com.example.checklistapp;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,7 @@ public class ChecklistActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ChecklistAdapter checklistAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,28 +56,31 @@ public class ChecklistActivity extends AppCompatActivity {
         }*/
 
         checklist = new Checklist();
-        title.setText(checklist.getTitle(), TextView.BufferType.EDITABLE);
+        title.setText(checklist.getTitle());
+
 
         recyclerView = findViewById(R.id.checklist_item_recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        checklistAdapter = new ChecklistAdapter(checklist);
 
-        checklistAdapter = new ChecklistAdapter(this, checklist);
         recyclerView.setAdapter(checklistAdapter);
-    }
-
-    @Override
-    public void onBackPressed() {
-        returnChecklist();
-        super.onBackPressed();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private void returnChecklist() {
-        Intent returnIntent = new Intent();
-        returnIntent.putExtra(INTENT_TITLE_KEY, checklist.getTitle());
-        returnIntent.putExtra(INTENT_CHECKBOXES_STATUS_KEY, checklist.getCheckboxes());
-        returnIntent.putExtra(INTENT_TASK_KEY, checklist.getTasks());
-        setResult(RESULT_OK, returnIntent);
-        finish();
+        if (TextUtils.isEmpty(title.getText().toString())) {
+            title.setError("Please enter a title for your checklist.");
+        } else {
+            Intent returnIntent = new Intent();
+            boolean[] tempCheckboxes = new boolean[checklist.getCheckboxes().size()];
+            for (int i = 0; i < checklist.getCheckboxes().size(); i++) {
+                tempCheckboxes[i] = checklist.getCheckboxes().get(i);
+            }
+            returnIntent.putExtra(INTENT_TITLE_KEY, title.getText().toString());
+            returnIntent.putExtra(INTENT_CHECKBOXES_STATUS_KEY, tempCheckboxes);
+            returnIntent.putExtra(INTENT_TASK_KEY, checklist.getTasks());
+            setResult(RESULT_OK, returnIntent);
+            finish();
+        }
     }
 
     private void retrieveChecklist() {
@@ -106,9 +111,19 @@ public class ChecklistActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_addtask:
                 checklist.addEmptyTask();
-                checklistAdapter.notifyItemInserted(checklist.size());
+                recyclerView.getAdapter().notifyItemInserted(checklist.size());
                 recyclerView.smoothScrollToPosition(checklist.size());
+                return true;
+            case android.R.id.home:
+                returnChecklist();
+                return true;
         }
         return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        returnChecklist();
+        super.onBackPressed();
     }
 }

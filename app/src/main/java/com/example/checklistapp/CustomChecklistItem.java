@@ -5,12 +5,9 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-import androidx.core.content.res.ResourcesCompat;
 
 public class CustomChecklistItem extends LinearLayout implements View.OnClickListener {
 
@@ -20,7 +17,7 @@ public class CustomChecklistItem extends LinearLayout implements View.OnClickLis
     ImageView mCheckboxImage;
     ImageView mDeleteButtonImage;
     EditText task;
-    private boolean isChecked;
+    boolean isChecked;
     Context context;
 
     CustomChecklistItem(Context context) {
@@ -51,7 +48,6 @@ public class CustomChecklistItem extends LinearLayout implements View.OnClickLis
         task.setText("");
         task.setTextSize(22);
         task.setSingleLine(true);
-        task.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         mCheckboxImage.setOnClickListener(this);
         task.setOnClickListener(this);
@@ -71,26 +67,14 @@ public class CustomChecklistItem extends LinearLayout implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        if (view == mCheckboxImage) {
-            isChecked = !isChecked;
-            if (isChecked) {
-                mCheckboxImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_checkbox_selected));
-                task.setEnabled(false);
-            } else {
-                mCheckboxImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_checkbox_deselected));
-                task.setEnabled(true);
-            }
-        } else if (view.getId() == task.getId()) {
+        if (view.getId() == task.getId()) {
             task.requestFocus();
             task.setCursorVisible(true);
         }
     }
 
-    public void setChecked(boolean checked) {
+    public void setTask(boolean checked, String newTask) {
         isChecked = checked;
-    }
-
-    public void setTask(String newTask) {
         task.setText(newTask);
     }
 }

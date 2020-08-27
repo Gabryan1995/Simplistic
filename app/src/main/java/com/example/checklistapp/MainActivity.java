@@ -71,8 +71,6 @@ public class MainActivity extends AppCompatActivity {
         // Handle accessing and editing an existing checklist.
 
 
-        // TODO:
-        // Handle deletion from swiping items off the screen or rearranging items by moving them.
         ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT | ItemTouchHelper.DOWN | ItemTouchHelper.UP,
                                                                                         ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
@@ -91,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
                 mainAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
             }
         });
+
+        helper.attachToRecyclerView(recyclerView);
 
         // Handle creating a new Checklist.
         FloatingActionButton fab = findViewById(R.id.new_checklist_fab);
@@ -114,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
             case NEW_CHECKLIST_REQUEST_CODE:
                 if (resultCode == RESULT_OK) {
                     String title = data.getStringExtra(INTENT_TITLE_KEY);
-
                     boolean[] checkboxesArray = data.getBooleanArrayExtra(INTENT_CHECKBOXES_STATUS_KEY);
                     ArrayList<Boolean> checkboxes = new ArrayList<>();
                     for (int i = 0; i < checkboxesArray.length; i++) {
