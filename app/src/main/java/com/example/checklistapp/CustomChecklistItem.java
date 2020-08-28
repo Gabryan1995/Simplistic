@@ -1,6 +1,7 @@
 package com.example.checklistapp;
 
 import android.content.Context;
+import android.text.InputType;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -9,10 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-public class CustomChecklistItem extends LinearLayout implements View.OnClickListener {
-
-    // TODO:
-    // Add remove task button.
+public class CustomChecklistItem extends LinearLayout {
     
     ImageView mCheckboxImage;
     ImageView mDeleteButtonImage;
@@ -47,10 +45,8 @@ public class CustomChecklistItem extends LinearLayout implements View.OnClickLis
         mDeleteButtonImage.setBackgroundResource(R.drawable.ic_delete_opaque);
         task.setText("");
         task.setTextSize(22);
-        task.setSingleLine(true);
-
-        mCheckboxImage.setOnClickListener(this);
-        task.setOnClickListener(this);
+        task.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+        task.setSingleLine(false);
 
         setOrientation(LinearLayout.HORIZONTAL);
 
@@ -65,16 +61,18 @@ public class CustomChecklistItem extends LinearLayout implements View.OnClickLis
         addView(mDeleteButtonImage, checkboxParams);
     }
 
-    @Override
-    public void onClick(View view) {
-        if (view.getId() == task.getId()) {
-            task.requestFocus();
-            task.setCursorVisible(true);
+    public void setChecked(boolean checked) {
+        this.isChecked = checked;
+        if (isChecked) {
+            mCheckboxImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_checkbox_selected));
+            task.setEnabled(false);
+        } else {
+            mCheckboxImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_checkbox_deselected));
+            task.setEnabled(true);
         }
     }
 
-    public void setTask(boolean checked, String newTask) {
-        isChecked = checked;
+    public void setTask(String newTask) {
         task.setText(newTask);
     }
 }

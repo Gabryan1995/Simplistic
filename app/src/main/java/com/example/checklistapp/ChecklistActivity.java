@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import static com.example.checklistapp.MainActivity.INTENT_TITLE_KEY;
 import static com.example.checklistapp.MainActivity.INTENT_CHECKBOXES_STATUS_KEY;
 import static com.example.checklistapp.MainActivity.INTENT_TASK_KEY;
+import static com.example.checklistapp.MainActivity.POSITION_KEY;
 
 public class ChecklistActivity extends AppCompatActivity {
 
@@ -33,6 +34,8 @@ public class ChecklistActivity extends AppCompatActivity {
     private Checklist checklist;
 
     private EditText title;
+
+    private int position;
 
     RecyclerView recyclerView;
     ChecklistAdapter checklistAdapter;
@@ -45,19 +48,14 @@ public class ChecklistActivity extends AppCompatActivity {
 
         title = findViewById(R.id.checklist_title);
 
-        /*retrieveChecklist();
-
-        if (checklist != null) {
-            for (int i = 0; i < checklist.getCheckboxes().size(); i++) {
-
-            }
+        Intent intent = getIntent();
+        if (intent.hasExtra(MainActivity.PARCELABLE_KEY)) {
+            checklist = intent.getParcelableExtra(MainActivity.PARCELABLE_KEY);
         } else {
+            checklist = new Checklist();
+        }
 
-        }*/
-
-        checklist = new Checklist();
         title.setText(checklist.getTitle());
-
 
         recyclerView = findViewById(R.id.checklist_item_recyclerview);
         checklistAdapter = new ChecklistAdapter(checklist);
@@ -68,7 +66,7 @@ public class ChecklistActivity extends AppCompatActivity {
 
     private void returnChecklist() {
         if (TextUtils.isEmpty(title.getText().toString())) {
-            title.setError("Please enter a title for your checklist.");
+            setResult(RESULT_CANCELED);
         } else {
             Intent returnIntent = new Intent();
             boolean[] tempCheckboxes = new boolean[checklist.getCheckboxes().size()];
@@ -78,24 +76,14 @@ public class ChecklistActivity extends AppCompatActivity {
             returnIntent.putExtra(INTENT_TITLE_KEY, title.getText().toString());
             returnIntent.putExtra(INTENT_CHECKBOXES_STATUS_KEY, tempCheckboxes);
             returnIntent.putExtra(INTENT_TASK_KEY, checklist.getTasks());
+
+            if (getIntent().hasExtra(MainActivity.POSITION_KEY)) {
+                returnIntent.putExtra(MainActivity.POSITION_KEY, getIntent().getIntExtra(MainActivity.POSITION_KEY, 0));
+            }
+
             setResult(RESULT_OK, returnIntent);
-            finish();
         }
-    }
-
-    private void retrieveChecklist() {
-        Intent data = getIntent();
-        String title = data.getStringExtra(INTENT_TITLE_KEY);
-
-        boolean[] checkboxesArray = data.getBooleanArrayExtra(INTENT_CHECKBOXES_STATUS_KEY);
-        ArrayList<Boolean> checkboxes = new ArrayList<>();
-        for (int i = 0; i < checkboxesArray.length; i++) {
-            checkboxes.add(checkboxesArray[i]);
-        }
-
-        ArrayList<String> task = data.getStringArrayListExtra(INTENT_TASK_KEY);
-
-        checklist = new Checklist(title, checkboxes, task);
+        finish();
     }
 
     @Override

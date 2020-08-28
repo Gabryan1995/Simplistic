@@ -45,8 +45,9 @@ public class MainActivity extends AppCompatActivity {
     MainAdapter mainAdapter;
 
     // Keys
-    private static final int NEW_CHECKLIST_REQUEST_CODE = 0;
-    private static final int EDITED_CHECKLIST_REQUEST_CODE = 1;
+    public static final int CHECKLIST_REQUEST_CODE = 0;
+    public static final String PARCELABLE_KEY = "parcelable_obj";
+    public static final String POSITION_KEY = "position";
 
     private static final String FILE_NAME = "checklists.json";
     private static final String TITLE_KEY = "title";
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivityForResult(new Intent(MainActivity.this, ChecklistActivity.class), NEW_CHECKLIST_REQUEST_CODE);
+                startActivityForResult(new Intent(MainActivity.this, ChecklistActivity.class), CHECKLIST_REQUEST_CODE);
             }
         });
 
@@ -118,26 +119,25 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
-            case NEW_CHECKLIST_REQUEST_CODE:
+            case CHECKLIST_REQUEST_CODE: {
                 if (resultCode == RESULT_OK) {
                     String title = data.getStringExtra(INTENT_TITLE_KEY);
                     boolean[] checkboxesArray = data.getBooleanArrayExtra(INTENT_CHECKBOXES_STATUS_KEY);
                     ArrayList<Boolean> checkboxes = new ArrayList<>();
+
                     for (int i = 0; i < checkboxesArray.length; i++) {
                         checkboxes.add(checkboxesArray[i]);
                     }
-
                     ArrayList<String> task = data.getStringArrayListExtra(INTENT_TASK_KEY);
 
-                    checklists.add(new Checklist(title, checkboxes, task));
-
+                    if (data.hasExtra(MainActivity.POSITION_KEY)) {
+                        checklists.set(data.getIntExtra(POSITION_KEY, 0), new Checklist(title, checkboxes, task));
+                    } else {
+                        checklists.add(new Checklist(title, checkboxes, task));
+                    }
                     mainAdapter.notifyDataSetChanged();
                 }
-            case EDITED_CHECKLIST_REQUEST_CODE:
-                if (resultCode == RESULT_OK) {
-                    // TODO: HANDLE EDITED CHECKLIST SAVING
-
-                }
+            }
         }
 
     }
@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
     private void handleIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
-            Snackbar.make(findViewById(android.R.id.content).getRootView(), "Handle query: " + query, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            
         }
     }
     // ** Setting up Search Functionality ** //

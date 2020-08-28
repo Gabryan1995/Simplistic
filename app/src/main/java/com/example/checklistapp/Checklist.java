@@ -1,10 +1,12 @@
 package com.example.checklistapp;
 
 import android.content.Intent;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import java.util.ArrayList;
 
-public class Checklist {
+public class Checklist implements Parcelable {
 
     private String title;
     private ArrayList<Boolean> checkboxes = new ArrayList<>();
@@ -38,4 +40,47 @@ public class Checklist {
     }
 
     int size() { return size; }
+
+
+    /***
+     * Parcelable implementation below
+     */
+    protected Checklist(Parcel in) {
+        title = in.readString();
+        /*boolean[] temp = in.createBooleanArray();
+        for (int i = 0; i < temp.length; i++) {
+            checkboxes.add(temp[i]);
+        }*/
+        in.readList(checkboxes, null);
+        in.readList(tasks, null);
+        size = checkboxes.size();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(title);
+        /*boolean[] temp = new boolean[checkboxes.size()];
+        for (int i = 0; i < checkboxes.size(); i++) {
+            temp[i] = checkboxes.get(i);
+        }*/
+        dest.writeList(checkboxes);
+        dest.writeList(tasks);
+    }
+
+    public static final Creator<Checklist> CREATOR = new Creator<Checklist>() {
+        @Override
+        public Checklist createFromParcel(Parcel in) {
+            return new Checklist(in);
+        }
+
+        @Override
+        public Checklist[] newArray(int size) {
+            return new Checklist[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 }

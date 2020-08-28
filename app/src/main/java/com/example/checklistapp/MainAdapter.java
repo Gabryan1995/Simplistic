@@ -38,7 +38,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Selected Checklist Titled: " + checklists.get(position).getTitle(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ChecklistActivity.class);
+                intent.putExtra(MainActivity.PARCELABLE_KEY, checklists.get(position));
+                intent.putExtra(MainActivity.POSITION_KEY, position);
+                ((MainActivity) context).startActivityForResult(intent, MainActivity.CHECKLIST_REQUEST_CODE);
             }
         });
     }

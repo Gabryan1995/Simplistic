@@ -2,6 +2,7 @@ package com.example.checklistapp;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -22,7 +23,7 @@ public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.Chec
         tasks = checklist.getTasks();
     }
 
-    public class ChecklistViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ChecklistViewHolder extends RecyclerView.ViewHolder {
         public CustomChecklistItem customChecklistItem;
         public CustomTaskListener customTaskListener;
 
@@ -30,29 +31,8 @@ public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.Chec
             super(view);
             customChecklistItem = (CustomChecklistItem) view;
 
-            customChecklistItem.mCheckboxImage.setOnClickListener(this);
             this.customTaskListener = customTaskListener;
             customChecklistItem.task.addTextChangedListener(customTaskListener);
-            customChecklistItem.mDeleteButtonImage.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-            if (view.equals(customChecklistItem.mCheckboxImage)) {
-                customChecklistItem.isChecked = !customChecklistItem.isChecked;
-                if (customChecklistItem.isChecked) {
-                    customChecklistItem.mCheckboxImage.setImageDrawable(customChecklistItem.getResources().getDrawable(R.drawable.ic_checkbox_selected));
-                    customChecklistItem.task.setEnabled(false);
-                } else {
-                    customChecklistItem.mCheckboxImage.setImageDrawable(customChecklistItem.getResources().getDrawable(R.drawable.ic_checkbox_deselected));
-                    customChecklistItem.task.setEnabled(true);
-                }
-                checkboxes.set(getAdapterPosition(), customChecklistItem.isChecked);
-            } else if (view.equals(customChecklistItem.mDeleteButtonImage)) {
-                checkboxes.remove(getAdapterPosition());
-                tasks.remove(getAdapterPosition());
-                notifyItemRemoved(getAdapterPosition());
-            }
         }
     }
 
@@ -68,7 +48,34 @@ public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.Chec
     @Override
     public void onBindViewHolder(@NonNull final ChecklistAdapter.ChecklistViewHolder holder, final int position) {
         holder.customTaskListener.setPosition(position);
-        holder.customChecklistItem.setTask(checkboxes.get(position), tasks.get(position));
+        holder.customChecklistItem.setChecked(checkboxes.get(position));
+        holder.customChecklistItem.setTask(tasks.get(position));
+
+        holder.customChecklistItem.mCheckboxImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.customChecklistItem.setChecked(!holder.customChecklistItem.isChecked);
+                checkboxes.set(position, holder.customChecklistItem.isChecked);
+            }
+        });
+
+        holder.customChecklistItem.task.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.customChecklistItem.task.requestFocus();
+                holder.customChecklistItem.task.setCursorVisible(true);
+            }
+        });
+
+        holder.customChecklistItem.mDeleteButtonImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkboxes.remove(position);
+                tasks.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, checkboxes.size());
+            }
+        });
     }
 
     @Override
