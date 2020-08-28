@@ -11,6 +11,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.JsonReader;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -23,14 +24,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,8 +49,9 @@ public class MainActivity extends AppCompatActivity {
     private static final int EDITED_CHECKLIST_REQUEST_CODE = 1;
 
     private static final String FILE_NAME = "checklists.json";
-    private static final String CHECKLIST_OBJECT_KEY = "checklists";
     private static final String TITLE_KEY = "title";
+    private static final String CHECKBOXES_KEY = "checkboxes";
+    private static final String TASK_KEY = "tasks";
 
     public static final String INTENT_TITLE_KEY = "new_checklist_title";
     public static final String INTENT_CHECKBOXES_STATUS_KEY = "new_checklist_checkbox_status";
@@ -55,17 +62,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = findViewById(R.id.checklist_recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         checklists = new ArrayList<>();
-
-        mainAdapter = new MainAdapter(MainActivity.this, checklists);
-        recyclerView.setAdapter(mainAdapter);
 
         if (isFilePresent()) {
             loadData();
         }
+
+        recyclerView = findViewById(R.id.checklist_recyclerview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mainAdapter = new MainAdapter(MainActivity.this, checklists);
+        recyclerView.setAdapter(mainAdapter);
 
         // TODO:
         // Handle accessing and editing an existing checklist.
@@ -135,56 +142,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void loadData() {
-        try {
-            JSONObject obj = new JSONObject(loadJSONFromAsset());
-            JSONArray checklistArray = obj.getJSONArray(CHECKLIST_OBJECT_KEY);
-
-            checklists.clear();
-
-            for (int i = 0; i < checklistArray.length(); i++) {
-                String title = checklistArray.getJSONObject(i).getString(TITLE_KEY);
-                JSONArray checklistItemArray = checklistArray.getJSONArray(i);
-                ArrayList<Boolean> checkboxes = new ArrayList<>();
-                ArrayList<String> tasks = new ArrayList<>();
-
-                for (int j = 0; j < checklistItemArray.length(); j++) {
-                    checkboxes.add(checklistItemArray.getBoolean(j));
-                    tasks.add(checklistItemArray.getString(j));
-                }
-                checklists.add(new Checklist(title, checkboxes, tasks));
-
-                mainAdapter.notifyDataSetChanged();
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String loadJSONFromAsset() {
-        try {
-            FileInputStream fileInputStream = getApplicationContext().openFileInput(FILE_NAME);
-            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            StringBuilder stringBuilder = new StringBuilder();
-            String currentLine;
-            while ((currentLine = bufferedReader.readLine()) != null) {
-                stringBuilder.append(currentLine);
-            }
-            return stringBuilder.toString();
-        } catch (FileNotFoundException fileNotFound) {
-            return null;
-        } catch (IOException ioException) {
-            return null;
-        }
-    }
-
-    public boolean isFilePresent() {
-        String path = getApplicationContext().getFilesDir().getAbsolutePath() + "/" + FILE_NAME;
-        File file = new File(path);
-        return file.exists();
-    }
-
     // ** Setting up Search Functionality ** //
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -212,4 +169,96 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     // ** Setting up Search Functionality ** //
+
+    private void saveData() {
+        // Creating JSONArray to store in file.
+        JSONArray checklistsArray = new JSONArray();
+
+        try {
+            for (int i = 0; i < checklists.size(); i++) {
+                JSONObject checklistObj = new JSONObject();
+
+                JSONArray checkboxesArray = new JSONArray();
+                JSONArray tasksArray = new JSONArray();
+
+                for (int j = 0; j < checklists.get(i).getCheckboxes().size(); j++) {
+                    checkboxesArray.put(checklists.get(i).getCheckboxes().get(j));
+                    tasksArray.put(checklists.get(i).getTasks().get(j));
+                }
+
+                checklistObj.put(TITLE_KEY, checklists.get(i).getTitle());
+                checklistObj.put(CHECKBOXES_KEY, checkboxesArray);
+                checklistObj.put(TASK_KEY, tasksArray);
+
+                checklistsArray.put(checklistObj);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            File file = new File(getApplicationContext().getFilesDir(), FILE_NAME);
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write(checklistsArray.toString());
+            fileWriter.flush();
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadData() {
+        File file = new File(getApplicationContext().getFilesDir(), FILE_NAME);
+
+        try {
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            StringBuilder stringBuilder = new StringBuilder();
+            String line = bufferedReader.readLine();
+            while (line != null) {
+                stringBuilder.append(line).append("\n");
+                line = bufferedReader.readLine();
+            }
+            bufferedReader.close();
+
+            String response = stringBuilder.toString();
+
+            JSONArray checklistsArray = new JSONArray(response);
+
+            for (int i = 0; i < checklistsArray.length(); i++) {
+                JSONObject currentChecklist = (JSONObject) checklistsArray.get(i);
+
+                String title = (String) currentChecklist.get(TITLE_KEY);
+
+                JSONArray checkboxesArray = (JSONArray) currentChecklist.get(CHECKBOXES_KEY);
+                JSONArray tasksArray = (JSONArray) currentChecklist.get(TASK_KEY);
+                ArrayList<Boolean> checkboxes = new ArrayList<>();
+                ArrayList<String> tasks = new ArrayList<>();
+
+                for (int j = 0; j < checkboxesArray.length(); j++) {
+                    checkboxes.add(checkboxesArray.getBoolean(j));
+                    tasks.add(tasksArray.getString(j));
+                }
+                checklists.add(new Checklist(title, checkboxes, tasks));
+            }
+        } catch (FileNotFoundException e) {
+            //Your exception handling here
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean isFilePresent() {
+        String path = getApplicationContext().getFilesDir() + "/" + FILE_NAME;
+        File file = new File(path);
+        return file.exists();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        saveData();
+    }
 }
