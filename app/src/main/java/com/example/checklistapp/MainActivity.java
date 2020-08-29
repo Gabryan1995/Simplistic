@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.JsonReader;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Checklist> checklists;
     RecyclerView recyclerView;
     MainAdapter mainAdapter;
+    SearchView searchView;
 
     // Keys
     public static final int CHECKLIST_REQUEST_CODE = 0;
@@ -75,10 +77,6 @@ public class MainActivity extends AppCompatActivity {
         mainAdapter = new MainAdapter(MainActivity.this, checklists);
         recyclerView.setAdapter(mainAdapter);
 
-        // TODO:
-        // Handle accessing and editing an existing checklist.
-
-
         ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT | ItemTouchHelper.DOWN | ItemTouchHelper.UP,
                                                                                         ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
@@ -108,9 +106,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(new Intent(MainActivity.this, ChecklistActivity.class), CHECKLIST_REQUEST_CODE);
             }
         });
-
-        // Get Search Query
-        handleIntent(getIntent());
     }
 
 
@@ -150,25 +145,36 @@ public class MainActivity extends AppCompatActivity {
 
         // Associate searchable configuration with the SearchView
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                mainAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                mainAdapter.getFilter().filter(query);
+                return false;
+            }
+        });
 
         return true;
     }
 
     @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        handleIntent(intent);
-    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
 
-    private void handleIntent(Intent intent) {
-        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-            String query = intent.getStringExtra(SearchManager.QUERY);
-            
+        if (id == R.id.action_search) {
+            return true;
         }
+
+        return super.onOptionsItemSelected(item);
     }
-    // ** Setting up Search Functionality ** //
 
     private void saveData() {
         // Creating JSONArray to store in file.

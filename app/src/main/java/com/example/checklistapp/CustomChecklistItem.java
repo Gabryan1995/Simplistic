@@ -36,6 +36,7 @@ public class CustomChecklistItem extends LinearLayout {
     }
 
     private void init() {
+        setPadding(20, 0, 20, 0);
         mCheckboxImage = new ImageView(context);
         mDeleteButtonImage = new ImageView(context);
         task = new EditText(context);

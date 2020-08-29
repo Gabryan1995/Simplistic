@@ -27,10 +27,6 @@ import static com.example.checklistapp.MainActivity.POSITION_KEY;
 
 public class ChecklistActivity extends AppCompatActivity {
 
-    // TODO: HANDLE CHECKLIST ACTIVITY
-    // - Send Checklist back to MainActivity
-    // - Handle taking data to edit an existing checklist.
-
     private Checklist checklist;
 
     private EditText title;
