@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.InputType;
 import android.util.AttributeSet;
 import android.view.Gravity;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,7 +14,6 @@ public class CustomChecklistItem extends LinearLayout {
     ImageView mCheckboxImage;
     ImageView mDeleteButtonImage;
     EditText task;
-    boolean isChecked;
     Context context;
 
     CustomChecklistItem(Context context) {
@@ -36,20 +34,17 @@ public class CustomChecklistItem extends LinearLayout {
     }
 
     private void init() {
-        setPadding(20, 0, 20, 0);
         mCheckboxImage = new ImageView(context);
         mDeleteButtonImage = new ImageView(context);
         task = new EditText(context);
 
-        isChecked = false;
         mCheckboxImage.setBackgroundResource(R.drawable.ic_checkbox_deselected);
         mDeleteButtonImage.setBackgroundResource(R.drawable.ic_delete_opaque);
+
         task.setText("");
         task.setTextSize(22);
         task.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
         task.setSingleLine(false);
-
-        setOrientation(LinearLayout.HORIZONTAL);
 
         ViewGroup.LayoutParams checkboxParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         ((LayoutParams) checkboxParams).gravity = Gravity.CENTER;
@@ -63,8 +58,7 @@ public class CustomChecklistItem extends LinearLayout {
     }
 
     public void setChecked(boolean checked) {
-        this.isChecked = checked;
-        if (isChecked) {
+        if (checked) {
             mCheckboxImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_checkbox_selected));
             task.setEnabled(false);
         } else {

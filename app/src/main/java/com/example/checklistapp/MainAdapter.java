@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,17 +36,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MainViewHolder holder, final int position) {
-        holder.title.setText(checklistsFiltered.get(position).getTitle());
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, ChecklistActivity.class);
-                intent.putExtra(MainActivity.PARCELABLE_KEY, checklists.get(position));
-                intent.putExtra(MainActivity.POSITION_KEY, position);
-                ((MainActivity) context).startActivityForResult(intent, MainActivity.CHECKLIST_REQUEST_CODE);
-            }
-        });
+        holder.bindTo(checklistsFiltered.get(position));
     }
 
     @Override
@@ -88,9 +77,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     }
 
 
-    public class MainViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class MainViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView title;
-        int position;
 
         public MainViewHolder(View itemView) {
             super(itemView);
@@ -99,9 +87,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
             itemView.setOnClickListener(this);
         }
 
+        void bindTo(Checklist currentChecklist) {
+            title.setText(currentChecklist.getTitle());
+        }
+
         @Override
         public void onClick(View v) {
-            position = getLayoutPosition();
+            Intent intent = new Intent(context, ChecklistActivity.class);
+            intent.putExtra(MainActivity.PARCELABLE_KEY, checklists.get(getAdapterPosition()));
+            intent.putExtra(MainActivity.POSITION_KEY, getAdapterPosition());
+            ((MainActivity) context).startActivityForResult(intent, MainActivity.CHECKLIST_REQUEST_CODE);
         }
     }
 }

@@ -1,12 +1,10 @@
 package com.example.checklistapp;
 
-import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,36 +32,35 @@ public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.Chec
             this.customTaskListener = customTaskListener;
             customChecklistItem.task.addTextChangedListener(customTaskListener);
         }
+
+        void bindTo(Boolean currentCheckbox, String currentTask) {
+            customChecklistItem.setChecked(currentCheckbox);
+            customChecklistItem.setTask(currentTask);
+        }
     }
 
     @NonNull
     @Override
     public ChecklistAdapter.ChecklistViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         CustomChecklistItem itemView = new CustomChecklistItem(parent.getContext());
+
         itemView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        itemView.setOrientation(LinearLayout.HORIZONTAL);
+        itemView.setPadding(20, 0, 20, 0);
 
         return new ChecklistViewHolder(itemView, new CustomTaskListener());
     }
 
     @Override
     public void onBindViewHolder(@NonNull final ChecklistAdapter.ChecklistViewHolder holder, final int position) {
-        holder.customTaskListener.setPosition(position);
-        holder.customChecklistItem.setChecked(checkboxes.get(position));
-        holder.customChecklistItem.setTask(tasks.get(position));
+        holder.customTaskListener.updatePosition(position);
+        holder.bindTo(checkboxes.get(position), tasks.get(position));
 
         holder.customChecklistItem.mCheckboxImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                holder.customChecklistItem.setChecked(!holder.customChecklistItem.isChecked);
-                checkboxes.set(position, holder.customChecklistItem.isChecked);
-            }
-        });
-
-        holder.customChecklistItem.task.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                holder.customChecklistItem.task.requestFocus();
-                holder.customChecklistItem.task.setCursorVisible(true);
+                checkboxes.set(position, !checkboxes.get(position));
+                holder.customChecklistItem.setChecked(checkboxes.get(position));
             }
         });
 
@@ -82,9 +79,9 @@ public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.Chec
     public int getItemCount() { return checkboxes.size(); }
 
     private class CustomTaskListener implements TextWatcher {
-        private int position;
+        int position = 0;
 
-        public void setPosition(int position) {
+        public void updatePosition(int position) {
             this.position = position;
         }
 

@@ -2,36 +2,25 @@ package com.example.checklistapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.snackbar.Snackbar;
-
-import java.util.ArrayList;
-
 import static com.example.checklistapp.MainActivity.INTENT_TITLE_KEY;
 import static com.example.checklistapp.MainActivity.INTENT_CHECKBOXES_STATUS_KEY;
 import static com.example.checklistapp.MainActivity.INTENT_TASK_KEY;
-import static com.example.checklistapp.MainActivity.POSITION_KEY;
 
 public class ChecklistActivity extends AppCompatActivity {
 
     private Checklist checklist;
 
     private EditText title;
-
-    private int position;
 
     RecyclerView recyclerView;
     ChecklistAdapter checklistAdapter;
@@ -42,8 +31,6 @@ public class ChecklistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checklist);
 
-        title = findViewById(R.id.checklist_title);
-
         Intent intent = getIntent();
         if (intent.hasExtra(MainActivity.PARCELABLE_KEY)) {
             checklist = intent.getParcelableExtra(MainActivity.PARCELABLE_KEY);
@@ -51,6 +38,7 @@ public class ChecklistActivity extends AppCompatActivity {
             checklist = new Checklist();
         }
 
+        title = findViewById(R.id.checklist_title);
         title.setText(checklist.getTitle());
 
         recyclerView = findViewById(R.id.checklist_item_recyclerview);

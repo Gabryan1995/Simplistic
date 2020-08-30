@@ -11,33 +11,24 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.JsonReader;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -67,26 +58,47 @@ public class MainActivity extends AppCompatActivity {
 
         checklists = new ArrayList<>();
 
-        if (isFilePresent()) {
-            loadData();
-        }
-
         recyclerView = findViewById(R.id.checklist_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mainAdapter = new MainAdapter(MainActivity.this, checklists);
         recyclerView.setAdapter(mainAdapter);
 
-        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT | ItemTouchHelper.DOWN | ItemTouchHelper.UP,
-                                                                                        ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        if (isFilePresent()) {
+            loadData();
+        }
+
+        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.DOWN | ItemTouchHelper.UP,
+                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            int currentPosition = -1;
+            int destPosition = -1;
+
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                int from = viewHolder.getAdapterPosition();
-                int to = target.getAdapterPosition();
+                int fromPosition = viewHolder.getAdapterPosition();
+                int toPosition = target.getAdapterPosition();
 
-                Collections.swap(checklists, from, to);
-                mainAdapter.notifyItemMoved(from, to);
+                if (currentPosition == -1)
+                    currentPosition = fromPosition;
+                destPosition = toPosition;
+
+                checklists.add(toPosition, checklists.remove(fromPosition));
+                mainAdapter.notifyItemMoved(fromPosition, toPosition);
+
                 return true;
+            }
+
+            @Override
+            public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                super.clearView(recyclerView, viewHolder);
+                if (currentPosition != -1 && destPosition != -1 && currentPosition != destPosition) {
+                    if (currentPosition > destPosition)
+                        mainAdapter.notifyItemRangeChanged(destPosition, currentPosition);
+                    else
+                        mainAdapter.notifyItemRangeChanged(currentPosition, destPosition);
+                }
+
+                currentPosition = destPosition = -1;
             }
 
             @Override
@@ -231,6 +243,8 @@ public class MainActivity extends AppCompatActivity {
 
             JSONArray checklistsArray = new JSONArray(response);
 
+            checklists.clear();
+
             for (int i = 0; i < checklistsArray.length(); i++) {
                 JSONObject currentChecklist = (JSONObject) checklistsArray.get(i);
 
@@ -246,6 +260,7 @@ public class MainActivity extends AppCompatActivity {
                     tasks.add(tasksArray.getString(j));
                 }
                 checklists.add(new Checklist(title, checkboxes, tasks));
+                mainAdapter.notifyDataSetChanged();
             }
         } catch (FileNotFoundException e) {
             //Your exception handling here
