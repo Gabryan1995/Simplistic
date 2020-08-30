@@ -46,10 +46,6 @@ public class Checklist implements Parcelable {
      */
     protected Checklist(Parcel in) {
         title = in.readString();
-        /*boolean[] temp = in.createBooleanArray();
-        for (int i = 0; i < temp.length; i++) {
-            checkboxes.add(temp[i]);
-        }*/
         in.readList(checkboxes, null);
         in.readList(tasks, null);
         size = checkboxes.size();
@@ -58,10 +54,6 @@ public class Checklist implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(title);
-        /*boolean[] temp = new boolean[checkboxes.size()];
-        for (int i = 0; i < checkboxes.size(); i++) {
-            temp[i] = checkboxes.get(i);
-        }*/
         dest.writeList(checkboxes);
         dest.writeList(tasks);
     }

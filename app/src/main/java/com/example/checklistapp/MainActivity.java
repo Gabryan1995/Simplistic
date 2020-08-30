@@ -32,21 +32,25 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Data
     ArrayList<Checklist> checklists;
+
+    // Components
     RecyclerView recyclerView;
     MainAdapter mainAdapter;
     SearchView searchView;
 
-    // Keys
     public static final int CHECKLIST_REQUEST_CODE = 0;
-    public static final String PARCELABLE_KEY = "parcelable_obj";
-    public static final String POSITION_KEY = "position";
 
+    // JSON Keys
     private static final String FILE_NAME = "checklists.json";
     private static final String TITLE_KEY = "title";
     private static final String CHECKBOXES_KEY = "checkboxes";
     private static final String TASK_KEY = "tasks";
 
+    // Intent Keys
+    public static final String PARCELABLE_KEY = "parcelable_obj";
+    public static final String POSITION_KEY = "position";
     public static final String INTENT_TITLE_KEY = "new_checklist_title";
     public static final String INTENT_CHECKBOXES_STATUS_KEY = "new_checklist_checkbox_status";
     public static final String INTENT_TASK_KEY = "new_checklist_tasks";
@@ -120,7 +124,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
+    /**
+     * Used to retrieve and update our checklist data after either
+     * creating a new checklist or editing a preexisting checklist.
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -132,8 +139,8 @@ public class MainActivity extends AppCompatActivity {
                     boolean[] checkboxesArray = data.getBooleanArrayExtra(INTENT_CHECKBOXES_STATUS_KEY);
                     ArrayList<Boolean> checkboxes = new ArrayList<>();
 
-                    for (int i = 0; i < checkboxesArray.length; i++) {
-                        checkboxes.add(checkboxesArray[i]);
+                    for (boolean checkbox : checkboxesArray) {
+                        checkboxes.add(checkbox);
                     }
                     ArrayList<String> task = data.getStringArrayListExtra(INTENT_TASK_KEY);
 
@@ -149,13 +156,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // ** Setting up Search Functionality ** //
+    /**
+     * Sets up the SearchView for querying whatever text the user inputs.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
 
-        // Associate searchable configuration with the SearchView
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
@@ -177,6 +185,9 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Registers the user's click when selecting the search button
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -188,23 +199,25 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Used to store the ArrayList of Checklist objects to a JSON file.
+     */
     private void saveData() {
-        // Creating JSONArray to store in file.
         JSONArray checklistsArray = new JSONArray();
 
         try {
-            for (int i = 0; i < checklists.size(); i++) {
+            for (Checklist checklist : checklists) {
                 JSONObject checklistObj = new JSONObject();
 
                 JSONArray checkboxesArray = new JSONArray();
                 JSONArray tasksArray = new JSONArray();
 
-                for (int j = 0; j < checklists.get(i).getCheckboxes().size(); j++) {
-                    checkboxesArray.put(checklists.get(i).getCheckboxes().get(j));
-                    tasksArray.put(checklists.get(i).getTasks().get(j));
+                for (int j = 0; j < checklist.getCheckboxes().size(); j++) {
+                    checkboxesArray.put(checklist.getCheckboxes().get(j));
+                    tasksArray.put(checklist.getTasks().get(j));
                 }
 
-                checklistObj.put(TITLE_KEY, checklists.get(i).getTitle());
+                checklistObj.put(TITLE_KEY, checklist.getTitle());
                 checklistObj.put(CHECKBOXES_KEY, checkboxesArray);
                 checklistObj.put(TASK_KEY, tasksArray);
 
@@ -225,6 +238,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Used to load the user's Checklists from a JSON file.
+     */
     public void loadData() {
         File file = new File(getApplicationContext().getFilesDir(), FILE_NAME);
 
@@ -263,7 +279,7 @@ public class MainActivity extends AppCompatActivity {
                 mainAdapter.notifyDataSetChanged();
             }
         } catch (FileNotFoundException e) {
-            //Your exception handling here
+            e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -277,6 +293,9 @@ public class MainActivity extends AppCompatActivity {
         return file.exists();
     }
 
+    /**
+     * Saves the user's checklists anytime the application is paused.
+     */
     @Override
     public void onPause() {
         super.onPause();

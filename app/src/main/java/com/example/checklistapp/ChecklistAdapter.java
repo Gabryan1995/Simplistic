@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.ChecklistViewHolder> {
 
+    // Data
     public static ArrayList<Boolean> checkboxes;
     public static ArrayList<String> tasks;
 
@@ -78,6 +79,10 @@ public class ChecklistAdapter extends RecyclerView.Adapter<ChecklistAdapter.Chec
     @Override
     public int getItemCount() { return checkboxes.size(); }
 
+    /**
+     * Custom listener for when the user changes the text for
+     * one of the tasks in their checklist and updates it.
+     */
     private class CustomTaskListener implements TextWatcher {
         int position = 0;
 

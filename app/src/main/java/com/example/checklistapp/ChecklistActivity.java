@@ -18,10 +18,11 @@ import static com.example.checklistapp.MainActivity.INTENT_TASK_KEY;
 
 public class ChecklistActivity extends AppCompatActivity {
 
+    // Data
     private Checklist checklist;
 
+    // Components
     private EditText title;
-
     RecyclerView recyclerView;
     ChecklistAdapter checklistAdapter;
 
@@ -48,6 +49,10 @@ public class ChecklistActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    /**
+     * Sends the checklist's data back to MainActivity to
+     * be saved unless the title for the checklist is empty.
+     */
     private void returnChecklist() {
         if (TextUtils.isEmpty(title.getText().toString())) {
             setResult(RESULT_CANCELED);
@@ -70,6 +75,9 @@ public class ChecklistActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * Inflates the menu to have the add new task button.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -78,6 +86,10 @@ public class ChecklistActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Registers user's menu tap for either adding a new task to their
+     * checklist, or going back to the parent activity (MainActivity).
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -93,6 +105,10 @@ public class ChecklistActivity extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * Returns the checklist in the case that the user
+     * presses the back button instead of the up button.
+     */
     @Override
     public void onBackPressed() {
         returnChecklist();

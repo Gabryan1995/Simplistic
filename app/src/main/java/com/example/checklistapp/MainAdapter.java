@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder> implements Filterable {
 
+    // Components
     ArrayList<Checklist> checklists;
     ArrayList<Checklist> checklistsFiltered;
     Context context;
@@ -24,6 +25,35 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         this.context = context;
         this.checklists = checklists;
         this.checklistsFiltered = checklists;
+    }
+
+    /**
+     * MainAdapter's Custom ViewHolder
+     */
+    class MainViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        TextView title;
+
+        public MainViewHolder(View itemView) {
+            super(itemView);
+
+            title = (TextView) itemView.findViewById(R.id.checklist_item_name);
+            itemView.setOnClickListener(this);
+        }
+
+        void bindTo(Checklist currentChecklist) {
+            title.setText(currentChecklist.getTitle());
+        }
+
+        /**
+         * Register's user selection to send them to the ChecklistActivity.
+         */
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(context, ChecklistActivity.class);
+            intent.putExtra(MainActivity.PARCELABLE_KEY, checklists.get(getAdapterPosition()));
+            intent.putExtra(MainActivity.POSITION_KEY, getAdapterPosition());
+            ((MainActivity) context).startActivityForResult(intent, MainActivity.CHECKLIST_REQUEST_CODE);
+        }
     }
 
     @NonNull
@@ -44,6 +74,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         return checklistsFiltered.size();
     }
 
+    /**
+     * Used to filter the adapter's list of values based on user's query.
+     */
     @Override
     public Filter getFilter() {
         return new Filter() {
@@ -54,9 +87,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
                     checklistsFiltered = checklists;
                 } else {
                     ArrayList<Checklist> filteredList = new ArrayList<>();
-                    for (Checklist row : checklists) {
-                        if (row.getTitle().toLowerCase().contains(charString.toLowerCase())) {
-                            filteredList.add(row);
+                    for (Checklist checklist : checklists) {
+                        if (checklist.getTitle().toLowerCase().contains(charString.toLowerCase())) {
+                            filteredList.add(checklist);
                         }
                     }
 
@@ -74,29 +107,5 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
                 notifyDataSetChanged();
             }
         };
-    }
-
-
-    class MainViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView title;
-
-        public MainViewHolder(View itemView) {
-            super(itemView);
-
-            title = (TextView) itemView.findViewById(R.id.checklist_item_name);
-            itemView.setOnClickListener(this);
-        }
-
-        void bindTo(Checklist currentChecklist) {
-            title.setText(currentChecklist.getTitle());
-        }
-
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(context, ChecklistActivity.class);
-            intent.putExtra(MainActivity.PARCELABLE_KEY, checklists.get(getAdapterPosition()));
-            intent.putExtra(MainActivity.POSITION_KEY, getAdapterPosition());
-            ((MainActivity) context).startActivityForResult(intent, MainActivity.CHECKLIST_REQUEST_CODE);
-        }
     }
 }

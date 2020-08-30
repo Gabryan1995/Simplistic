@@ -10,7 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 public class CustomChecklistItem extends LinearLayout {
-    
+
+    // Components
     ImageView mCheckboxImage;
     ImageView mDeleteButtonImage;
     EditText task;
@@ -33,6 +34,9 @@ public class CustomChecklistItem extends LinearLayout {
         init();
     }
 
+    /**
+     * Initializes the Custom View's parameters when created.
+     */
     private void init() {
         mCheckboxImage = new ImageView(context);
         mDeleteButtonImage = new ImageView(context);
@@ -57,6 +61,9 @@ public class CustomChecklistItem extends LinearLayout {
         addView(mDeleteButtonImage, checkboxParams);
     }
 
+    /**
+     * Sets the checkbox and task to be selected and disabled, or deselected and enabled.
+     */
     public void setChecked(boolean checked) {
         if (checked) {
             mCheckboxImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_checkbox_selected));
@@ -67,6 +74,9 @@ public class CustomChecklistItem extends LinearLayout {
         }
     }
 
+    /**
+     * Sets the task if there is any text passed.
+     */
     public void setTask(String newTask) {
         task.setText(newTask);
     }
