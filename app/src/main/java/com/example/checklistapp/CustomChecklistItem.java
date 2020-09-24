@@ -1,6 +1,9 @@
 package com.example.checklistapp;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.os.Build;
 import android.text.InputType;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -42,18 +45,27 @@ public class CustomChecklistItem extends LinearLayout {
         mDeleteButtonImage = new ImageView(context);
         task = new EditText(context);
 
-        mCheckboxImage.setBackgroundResource(R.drawable.ic_checkbox_deselected);
-        mDeleteButtonImage.setBackgroundResource(R.drawable.ic_delete_opaque);
-
         task.setText("");
+        task.setTextColor(Color.WHITE);
         task.setTextSize(22);
         task.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
         task.setSingleLine(false);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ColorStateList colorStateList = ColorStateList.valueOf(getResources().getColor(R.color.colorAccent));
+            task.setBackgroundTintList(colorStateList);
+        }
+
+        mCheckboxImage.setContentDescription("Checkbox");
+        mDeleteButtonImage.setContentDescription("Delete Task");
+
+        mCheckboxImage.setPadding(32, 32, 32, 32);
+
+        mDeleteButtonImage.setBackgroundResource(R.drawable.ic_delete);
 
         ViewGroup.LayoutParams checkboxParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         ((LayoutParams) checkboxParams).gravity = Gravity.CENTER;
 
-        ViewGroup.LayoutParams taskParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        ViewGroup.LayoutParams taskParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         ((LayoutParams) taskParams).weight = 1;
 
         addView(mCheckboxImage, checkboxParams);

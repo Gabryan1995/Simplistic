@@ -1408,7 +1408,7 @@ int drawable design_snackbar_background 0x7f07006c
 int drawable ic_add 0x7f07006d
 int drawable ic_checkbox_deselected 0x7f07006e
 int drawable ic_checkbox_selected 0x7f07006f
-int drawable ic_delete_opaque 0x7f070070
+int drawable ic_delete 0x7f070070
 int drawable ic_launcher_background 0x7f070071
 int drawable ic_launcher_foreground 0x7f070072
 int drawable ic_mtrl_checked_circle 0x7f070073

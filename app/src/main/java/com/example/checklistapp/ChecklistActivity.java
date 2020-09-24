@@ -1,6 +1,7 @@
 package com.example.checklistapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -41,6 +42,7 @@ public class ChecklistActivity extends AppCompatActivity {
 
         title = findViewById(R.id.checklist_title);
         title.setText(checklist.getTitle());
+        title.setTextColor(Color.WHITE);
 
         recyclerView = findViewById(R.id.checklist_item_recyclerview);
         checklistAdapter = new ChecklistAdapter(checklist);
