@@ -2,6 +2,8 @@ package com.example.checklistapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -21,10 +24,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     ArrayList<Checklist> checklistsFiltered;
     Context context;
 
-    public MainAdapter(Context context, ArrayList<Checklist> checklists) {
+    private int currentColor;
+
+    public MainAdapter(Context context, ArrayList<Checklist> checklists, int primaryColor) {
         this.context = context;
         this.checklists = checklists;
         this.checklistsFiltered = checklists;
+        currentColor = primaryColor;
     }
 
     /**
@@ -66,6 +72,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MainViewHolder holder, final int position) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            holder.itemView.getBackground().setTint(currentColor);
+        }
+        else {
+            holder.itemView.setBackgroundColor(currentColor);
+        }
         holder.bindTo(checklistsFiltered.get(position));
     }
 

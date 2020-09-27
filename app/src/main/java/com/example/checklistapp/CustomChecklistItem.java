@@ -42,8 +42,11 @@ public class CustomChecklistItem extends LinearLayout {
      */
     private void init() {
         mCheckboxImage = new ImageView(context);
-        mDeleteButtonImage = new ImageView(context);
         task = new EditText(context);
+        mDeleteButtonImage = new ImageView(context);
+
+        mCheckboxImage.setContentDescription("Checkbox");
+        mCheckboxImage.setPadding(32, 32, 32, 32);
 
         task.setText("");
         task.setTextColor(Color.WHITE);
@@ -51,15 +54,11 @@ public class CustomChecklistItem extends LinearLayout {
         task.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
         task.setSingleLine(false);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            ColorStateList colorStateList = ColorStateList.valueOf(getResources().getColor(R.color.colorAccent));
+            ColorStateList colorStateList = ColorStateList.valueOf(Color.WHITE);
             task.setBackgroundTintList(colorStateList);
         }
 
-        mCheckboxImage.setContentDescription("Checkbox");
         mDeleteButtonImage.setContentDescription("Delete Task");
-
-        mCheckboxImage.setPadding(32, 32, 32, 32);
-
         mDeleteButtonImage.setBackgroundResource(R.drawable.ic_delete);
 
         ViewGroup.LayoutParams checkboxParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

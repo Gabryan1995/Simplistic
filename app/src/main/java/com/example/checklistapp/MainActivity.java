@@ -1,8 +1,10 @@
 package com.example.checklistapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -55,17 +60,33 @@ public class MainActivity extends AppCompatActivity {
     public static final String INTENT_CHECKBOXES_STATUS_KEY = "new_checklist_checkbox_status";
     public static final String INTENT_TASK_KEY = "new_checklist_tasks";
 
+    // Shared Preferences - Theme
+    private static int currentPrimaryColor;
+    private static int currentSecondaryColor;
+    private SharedPreferences preferences;
+    public String sharedPrefFileName = "com.example.android.checklistappsharedprefs";
+    public static final String PRIMARY_COLOR_KEY = "pColor";
+    public static final String SECONDARY_COLOR_KEY = "sColor";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        preferences = getSharedPreferences(sharedPrefFileName, MODE_PRIVATE);
+        currentPrimaryColor = preferences.getInt(PRIMARY_COLOR_KEY, ContextCompat.getColor(this, R.color.orange));
+        currentSecondaryColor = preferences.getInt(SECONDARY_COLOR_KEY, ContextCompat.getColor(this, R.color.darkOrange));
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(currentPrimaryColor));
+
         checklists = new ArrayList<>();
 
         recyclerView = findViewById(R.id.checklist_recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setBackgroundColor(currentSecondaryColor);
 
-        mainAdapter = new MainAdapter(MainActivity.this, checklists);
+        mainAdapter = new MainAdapter(MainActivity.this, checklists, currentPrimaryColor);
         recyclerView.setAdapter(mainAdapter);
 
         if (isFilePresent()) {
@@ -116,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Handle creating a new Checklist.
         FloatingActionButton fab = findViewById(R.id.new_checklist_fab);
+        fab.setBackgroundTintList(ColorStateList.valueOf(currentPrimaryColor));
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -197,6 +219,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Saves the users theme preferences
+     */
+    private void savePreferences() {
+        SharedPreferences.Editor preferencesEditor = preferences.edit();
+        preferencesEditor.putInt(PRIMARY_COLOR_KEY, currentPrimaryColor);
+        preferencesEditor.putInt(SECONDARY_COLOR_KEY, currentSecondaryColor);
+        preferencesEditor.apply();
     }
 
     /**
@@ -299,6 +331,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onPause() {
         super.onPause();
+
+        savePreferences();
+
         saveData();
     }
 }

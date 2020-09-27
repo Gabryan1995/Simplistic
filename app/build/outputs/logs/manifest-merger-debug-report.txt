@@ -73,7 +73,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ga
 	android:allowBackup
 		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
-		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:11:9-40
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:11:9-46
 activity#com.example.checklistapp.MainActivity
 ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:12:9-28:20
 	android:launchMode

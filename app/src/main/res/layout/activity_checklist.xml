@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/darkGreen">
 
     <EditText
         android:id="@+id/checklist_title"
