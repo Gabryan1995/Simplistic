@@ -45,6 +45,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array colors_array
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -1523,6 +1524,7 @@ id action_mode_bar_stub
 id action_mode_close_button
 id action_search
 id action_text
+id action_theme
 id actions
 id activity_chooser_view_content
 id activity_main_background
@@ -1546,6 +1548,7 @@ id checkbox
 id checked
 id checklist_item_name
 id checklist_item_recyclerview
+id checklist_layout
 id checklist_recyclerview
 id checklist_title
 id chip
@@ -2698,6 +2701,7 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style WindowAnimationTransition
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth

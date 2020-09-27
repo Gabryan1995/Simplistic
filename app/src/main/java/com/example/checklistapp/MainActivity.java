@@ -3,14 +3,17 @@ package com.example.checklistapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -61,24 +64,57 @@ public class MainActivity extends AppCompatActivity {
     public static final String INTENT_TASK_KEY = "new_checklist_tasks";
 
     // Shared Preferences - Theme
-    private static int currentPrimaryColor;
-    private static int currentSecondaryColor;
+    public static int themeSelection;
+    public static int currentPrimaryColor;
+    public static int currentSecondaryColor;
     private SharedPreferences preferences;
     public String sharedPrefFileName = "com.example.android.checklistappsharedprefs";
-    public static final String PRIMARY_COLOR_KEY = "pColor";
-    public static final String SECONDARY_COLOR_KEY = "sColor";
+    public static final String THEME_KEY = "theme";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        preferences = getSharedPreferences(sharedPrefFileName, MODE_PRIVATE);
+        themeSelection = preferences.getInt(THEME_KEY, 0);
+        switch (themeSelection) {
+            case 0:
+                setTheme(R.style.AppThemeRed);
+                currentPrimaryColor = ContextCompat.getColor(this, R.color.red);
+                currentSecondaryColor = ContextCompat.getColor(this, R.color.darkRed);
+                break;
+            case 1:
+                setTheme(R.style.AppThemeOrange);
+                currentPrimaryColor = ContextCompat.getColor(this, R.color.orange);
+                currentSecondaryColor = ContextCompat.getColor(this, R.color.darkOrange);
+                break;
+            case 2:
+                setTheme(R.style.AppThemeYellow);
+                currentPrimaryColor = ContextCompat.getColor(this, R.color.yellow);
+                currentSecondaryColor = ContextCompat.getColor(this, R.color.darkYellow);
+                break;
+            case 3:
+                setTheme(R.style.AppThemeGreen);
+                currentPrimaryColor = ContextCompat.getColor(this, R.color.green);
+                currentSecondaryColor = ContextCompat.getColor(this, R.color.darkGreen);
+                break;
+            case 4:
+                setTheme(R.style.AppThemeBlue);
+                currentPrimaryColor = ContextCompat.getColor(this, R.color.blue);
+                currentSecondaryColor = ContextCompat.getColor(this, R.color.darkBlue);
+                break;
+            case 5:
+                setTheme(R.style.AppThemePurple);
+                currentPrimaryColor = ContextCompat.getColor(this, R.color.purple);
+                currentSecondaryColor = ContextCompat.getColor(this, R.color.darkPurple);
+                break;
+            case 6:
+                setTheme(R.style.AppThemePink);
+                currentPrimaryColor = ContextCompat.getColor(this, R.color.pink);
+                currentSecondaryColor = ContextCompat.getColor(this, R.color.darkPink);
+                break;
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        preferences = getSharedPreferences(sharedPrefFileName, MODE_PRIVATE);
-        currentPrimaryColor = preferences.getInt(PRIMARY_COLOR_KEY, ContextCompat.getColor(this, R.color.orange));
-        currentSecondaryColor = preferences.getInt(SECONDARY_COLOR_KEY, ContextCompat.getColor(this, R.color.darkOrange));
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(currentPrimaryColor));
 
         checklists = new ArrayList<>();
 
@@ -214,11 +250,54 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_search) {
-            return true;
+        switch (id) {
+            case R.id.action_search:
+                return true;
+            case R.id.action_theme:
+                showThemeSelectionDialog();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showThemeSelectionDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Themes")
+                .setItems(R.array.colors_array, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        switch (which) {
+                            case 0:
+                                currentPrimaryColor = R.color.red;
+                                break;
+                            case 1:
+                                currentPrimaryColor = R.color.orange;
+                                break;
+                            case 2:
+                                currentPrimaryColor = R.color.yellow;
+                                break;
+                            case 3:
+                                currentPrimaryColor = R.color.green;
+                                break;
+                            case 4:
+                                currentPrimaryColor = R.color.blue;
+                                break;
+                            case 5:
+                                currentPrimaryColor = R.color.purple;
+                                break;
+                            case 6:
+                                currentPrimaryColor = R.color.pink;
+                                break;
+                        }
+                        savePreferences();
+
+                        finish();
+                        startActivity(getIntent());
+                    }
+                });
+        builder.show();
     }
 
     /**
@@ -226,8 +305,29 @@ public class MainActivity extends AppCompatActivity {
      */
     private void savePreferences() {
         SharedPreferences.Editor preferencesEditor = preferences.edit();
-        preferencesEditor.putInt(PRIMARY_COLOR_KEY, currentPrimaryColor);
-        preferencesEditor.putInt(SECONDARY_COLOR_KEY, currentSecondaryColor);
+        switch (currentPrimaryColor) {
+            case R.color.red:
+                preferencesEditor.putInt(THEME_KEY, 0);
+                break;
+            case R.color.orange:
+                preferencesEditor.putInt(THEME_KEY, 1);
+                break;
+            case R.color.yellow:
+                preferencesEditor.putInt(THEME_KEY, 2);
+                break;
+            case R.color.green:
+                preferencesEditor.putInt(THEME_KEY, 3);
+                break;
+            case R.color.blue:
+                preferencesEditor.putInt(THEME_KEY, 4);
+                break;
+            case R.color.purple:
+                preferencesEditor.putInt(THEME_KEY, 5);
+                break;
+            case R.color.pink:
+                preferencesEditor.putInt(THEME_KEY, 6);
+                break;
+        }
         preferencesEditor.apply();
     }
 

@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/AppThemeOrange" >
+        android:theme="@style/Theme.AppCompat" >
         <activity
             android:name="com.example.checklistapp.MainActivity"
             android:launchMode="singleTop" >

@@ -12,12 +12,15 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import static com.example.checklistapp.MainActivity.INTENT_TITLE_KEY;
 import static com.example.checklistapp.MainActivity.INTENT_CHECKBOXES_STATUS_KEY;
 import static com.example.checklistapp.MainActivity.INTENT_TASK_KEY;
+import static com.example.checklistapp.MainActivity.currentSecondaryColor;
+import static com.example.checklistapp.MainActivity.themeSelection;
 
 public class ChecklistActivity extends AppCompatActivity {
 
@@ -32,6 +35,30 @@ public class ChecklistActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        switch (themeSelection) {
+            case 0:
+                setTheme(R.style.AppThemeRed);
+                break;
+            case 1:
+                setTheme(R.style.AppThemeOrange);
+                break;
+            case 2:
+                setTheme(R.style.AppThemeYellow);
+                break;
+            case 3:
+                setTheme(R.style.AppThemeGreen);
+                break;
+            case 4:
+                setTheme(R.style.AppThemeBlue);
+                break;
+            case 5:
+                setTheme(R.style.AppThemePurple);
+                break;
+            case 6:
+                setTheme(R.style.AppThemePink);
+                break;
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checklist);
 
@@ -41,6 +68,8 @@ public class ChecklistActivity extends AppCompatActivity {
         } else {
             checklist = new Checklist();
         }
+
+        findViewById(R.id.checklist_layout).setBackgroundColor(currentSecondaryColor);
 
         title = findViewById(R.id.checklist_title);
         title.setText(checklist.getTitle());

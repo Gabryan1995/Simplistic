@@ -26,8 +26,8 @@
 18        android:supportsRtl="true"
 18-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:10:9-35
 19        android:testOnly="true"
-20        android:theme="@style/AppThemeOrange" >
-20-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:11:9-46
+20        android:theme="@style/Theme.AppCompat" >
+20-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:11:9-47
 21        <activity
 21-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:12:9-28:20
 22            android:name="com.example.checklistapp.MainActivity"
