@@ -77,37 +77,30 @@ public class MainActivity extends AppCompatActivity {
         themeSelection = preferences.getInt(THEME_KEY, 0);
         switch (themeSelection) {
             case 0:
-                setTheme(R.style.AppThemeRed);
                 currentPrimaryColor = ContextCompat.getColor(this, R.color.red);
                 currentSecondaryColor = ContextCompat.getColor(this, R.color.darkRed);
                 break;
             case 1:
-                setTheme(R.style.AppThemeOrange);
                 currentPrimaryColor = ContextCompat.getColor(this, R.color.orange);
                 currentSecondaryColor = ContextCompat.getColor(this, R.color.darkOrange);
                 break;
             case 2:
-                setTheme(R.style.AppThemeYellow);
                 currentPrimaryColor = ContextCompat.getColor(this, R.color.yellow);
                 currentSecondaryColor = ContextCompat.getColor(this, R.color.darkYellow);
                 break;
             case 3:
-                setTheme(R.style.AppThemeGreen);
                 currentPrimaryColor = ContextCompat.getColor(this, R.color.green);
                 currentSecondaryColor = ContextCompat.getColor(this, R.color.darkGreen);
                 break;
             case 4:
-                setTheme(R.style.AppThemeBlue);
                 currentPrimaryColor = ContextCompat.getColor(this, R.color.blue);
                 currentSecondaryColor = ContextCompat.getColor(this, R.color.darkBlue);
                 break;
             case 5:
-                setTheme(R.style.AppThemePurple);
                 currentPrimaryColor = ContextCompat.getColor(this, R.color.purple);
                 currentSecondaryColor = ContextCompat.getColor(this, R.color.darkPurple);
                 break;
             case 6:
-                setTheme(R.style.AppThemePink);
                 currentPrimaryColor = ContextCompat.getColor(this, R.color.pink);
                 currentSecondaryColor = ContextCompat.getColor(this, R.color.darkPink);
                 break;
@@ -115,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(currentPrimaryColor));
 
         checklists = new ArrayList<>();
 
@@ -262,36 +257,40 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showThemeSelectionDialog() {
+        SharedPreferences.Editor preferencesEditor = preferences.edit();
+        preferencesEditor.putInt(THEME_KEY, 0);
+        preferencesEditor.apply();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Themes")
                 .setItems(R.array.colors_array, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
+                        SharedPreferences.Editor preferencesEditor = preferences.edit();
                         switch (which) {
                             case 0:
-                                currentPrimaryColor = R.color.red;
+                                preferencesEditor.putInt(THEME_KEY, 0);
                                 break;
                             case 1:
-                                currentPrimaryColor = R.color.orange;
+                                preferencesEditor.putInt(THEME_KEY, 1);
                                 break;
                             case 2:
-                                currentPrimaryColor = R.color.yellow;
+                                preferencesEditor.putInt(THEME_KEY, 2);
                                 break;
                             case 3:
-                                currentPrimaryColor = R.color.green;
+                                preferencesEditor.putInt(THEME_KEY, 3);
                                 break;
                             case 4:
-                                currentPrimaryColor = R.color.blue;
+                                preferencesEditor.putInt(THEME_KEY, 4);
                                 break;
                             case 5:
-                                currentPrimaryColor = R.color.purple;
+                                preferencesEditor.putInt(THEME_KEY, 5);
                                 break;
                             case 6:
-                                currentPrimaryColor = R.color.pink;
+                                preferencesEditor.putInt(THEME_KEY, 6);
                                 break;
                         }
-                        savePreferences();
+                        preferencesEditor.apply();
 
                         finish();
                         startActivity(getIntent());
