@@ -1422,8 +1422,7 @@ drawable ic_add
 drawable ic_checkbox_deselected
 drawable ic_checkbox_selected
 drawable ic_delete
-drawable ic_launcher_background
-drawable ic_launcher_foreground
+drawable ic_launcher
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
@@ -1912,6 +1911,7 @@ layout text_view_without_line_height
 menu menu_checklist
 menu menu_main
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description
