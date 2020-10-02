@@ -16,12 +16,12 @@
         "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_search.png.flat",
-        "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\src\\main\\res\\drawable-mdpi\\ic_search.png"
-    },
-    {
         "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_search.png.flat",
         "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_search.png"
+    },
+    {
+        "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_search.png.flat",
+        "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\src\\main\\res\\drawable-mdpi\\ic_search.png"
     },
     {
         "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\menu_menu_main.xml.flat",
@@ -52,12 +52,12 @@
         "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\src\\main\\res\\layout\\activity_checklist.xml"
     },
     {
-        "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_checkbox_deselected.png.flat",
-        "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\src\\main\\res\\drawable-xhdpi\\ic_checkbox_deselected.png"
-    },
-    {
         "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_checkbox_deselected.png.flat",
+        "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\src\\main\\res\\drawable-xhdpi\\ic_checkbox_deselected.png"
     },
     {
         "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_delete.png.flat",
@@ -76,12 +76,12 @@
         "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_delete.xml"
     },
     {
-        "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_add.png.flat",
@@ -204,12 +204,12 @@
         "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\layout_list_item.xml.flat",
         "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\src\\main\\res\\layout\\list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\gabry\\AndroidApps\\To-Do_List_App\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_delete.png.flat",

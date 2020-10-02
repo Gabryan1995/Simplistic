@@ -1,17 +1,26 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-40:12
+ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-45:12
 MERGED from [com.google.android.material:material:1.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d776e52f087aabc381b0b4907fc988e8\material-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\f209091eb3926c649f0b3346884e478c\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\75baa063235eedb7ab2cc635bdb88d73\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.recyclerview:recyclerview-selection:1.1.0-rc01] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\2706fdf12c961096dbc61a5ec4b35cef\recyclerview-selection-1.1.0-rc01\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\65b26ec11e574f5d68d3fe93c8217bcb\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\6e57c04e98c372fcd8878b95a3d5645d\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\ffb6a67829fa40d4c0493cb7e147e8f7\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-ads:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d84d41e230be248f125173e9d370b015\jetified-play-services-ads-19.4.0\AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d65cb7c8efed3ac0d87582c278bb8c7e\browser-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\f5ec57ec49d0a3e9add695de66a9078c\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\7c0677be8011741026309ef690a9f4db\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-gass:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\21148f8c0d551cf14eacf4efde99230e\jetified-play-services-gass-19.4.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\346d5a4de9de9f191c81a5b0fc989c75\jetified-play-services-ads-identifier-17.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:17:1-47:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\6b52bd19d511456e0c595c26a8fd2a48\jetified-play-services-measurement-sdk-api-17.2.0\AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.gms:play-services-tasks:17.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\b6c62fbc96c361f320b4c53b3f2d4325\jetified-play-services-tasks-17.1.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-measurement-base:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\dfb0663bbf14d8ecabead99aa92d9e12\jetified-play-services-measurement-base-17.2.0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\e3f6df6a2f405844b8008c633f7822ac\jetified-play-services-basement-17.3.0\AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\12c076570219bdc2a11e9d0df335391a\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\23f12b0a995277db82a9d4b860245889\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\4c1ade53cc4b20d7bc631ac17d3bfca4\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -20,46 +29,66 @@ MERGED from [androidx.transition:transition:1.2.0] C:\Users\gabry\.gradle\caches
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\32488318cfc756fa0f6ae91e625fa530\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\0878a65179abd6a1b5016c6981bce614\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\ebc8011c39d26c440b76466a9b971345\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\aa2f1cd22069a9bb65f1845d902d729f\slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d1ea25f3382273eed14315b543469208\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\18f5c1f0dcc08504bb6a1709d838cf6b\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\2118a7099009bdd29f0289728ee82c0d\loader-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\f52c60a67eb4c2183a64b296ae574169\jetified-activity-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\a083b9190df6cd0b2eed1b8d83acb3d5\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\f1f8381ec1e1c3f6b165a08612cfd883\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\4527d81fa1dab2c4adef56282f6f51b4\core-1.2.0\AndroidManifest.xml:17:1-26:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\67aa86ef8808cac41aa5afe6d271f3ea\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\bcf856ddfeb04b3b73ed182739910d39\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\098c479f6892902db16f6d5e04f3818b\lifecycle-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\8cf26fd0d5f767ad6dfe1019ab25b952\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\86f8c8e32c7613bbe5e86eb4377e9413\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\bcf856ddfeb04b3b73ed182739910d39\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\c6f1e76c078a7e4f5288325854cab247\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\7282e00d74c6a6acf53f4bfd68421266\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\73114719268a97e9fd391905563b2ee9\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\7bcdab9edca68925f6bcb92ddd8a20de\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d711f81259436f09ffdf0b48105165e3\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\87e4a5cb4839ebd5d033fa0ae6227780\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\1e0614212b25f4ae67724a3587ed8129\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-40:12
-INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-40:12
+MERGED from [com.google.android.gms:play-services-ads-base:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\372bf407356eb23d69ce9e79d2ca8b68\jetified-play-services-ads-base-19.4.0\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-45:12
 	package
 		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:3:5-39
 		INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-40:12
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-45:12
 		INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-40:12
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:1-45:12
 		INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:5:5-38:19
+ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:5:5-43:19
 MERGED from [com.google.android.material:material:1.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d776e52f087aabc381b0b4907fc988e8\material-1.2.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d776e52f087aabc381b0b4907fc988e8\material-1.2.0\AndroidManifest.xml:22:5-20
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\75baa063235eedb7ab2cc635bdb88d73\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\75baa063235eedb7ab2cc635bdb88d73\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-gass:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\21148f8c0d551cf14eacf4efde99230e\jetified-play-services-gass-19.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-gass:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\21148f8c0d551cf14eacf4efde99230e\jetified-play-services-gass-19.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\346d5a4de9de9f191c81a5b0fc989c75\jetified-play-services-ads-identifier-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\346d5a4de9de9f191c81a5b0fc989c75\jetified-play-services-ads-identifier-17.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:26:5-45:19
+MERGED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:26:5-45:19
+MERGED from [com.google.android.gms:play-services-tasks:17.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\b6c62fbc96c361f320b4c53b3f2d4325\jetified-play-services-tasks-17.1.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\b6c62fbc96c361f320b4c53b3f2d4325\jetified-play-services-tasks-17.1.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\dfb0663bbf14d8ecabead99aa92d9e12\jetified-play-services-measurement-base-17.2.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\dfb0663bbf14d8ecabead99aa92d9e12\jetified-play-services-measurement-base-17.2.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\e3f6df6a2f405844b8008c633f7822ac\jetified-play-services-basement-17.3.0\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\e3f6df6a2f405844b8008c633f7822ac\jetified-play-services-basement-17.3.0\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.core:core:1.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\4527d81fa1dab2c4adef56282f6f51b4\core-1.2.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\4527d81fa1dab2c4adef56282f6f51b4\core-1.2.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\67aa86ef8808cac41aa5afe6d271f3ea\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\67aa86ef8808cac41aa5afe6d271f3ea\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [com.google.android.gms:play-services-ads-base:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\372bf407356eb23d69ce9e79d2ca8b68\jetified-play-services-ads-base-19.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-ads-base:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\372bf407356eb23d69ce9e79d2ca8b68\jetified-play-services-ads-base-19.4.0\AndroidManifest.xml:7:5-20
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\4527d81fa1dab2c4adef56282f6f51b4\core-1.2.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
@@ -75,47 +104,57 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ga
 	android:theme
 		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:11:9-47
 activity#com.example.checklistapp.MainActivity
-ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:12:9-28:20
+ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:12:9-29:20
 	android:launchMode
 		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:14:13-43
+	android:windowSoftInputMode
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:15:13-52
 	android:name
 		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:13:13-41
 meta-data#android.app.searchable
-ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:16:13-18:54
+ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:17:13-19:54
 	android:resource
-		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:18:17-51
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:19:17-51
 	android:name
-		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:17:17-54
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:18:17-54
 intent-filter#action:name:android.intent.action.SEARCH
-ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:20:13-22:29
+ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:21:13-23:29
 action#android.intent.action.SEARCH
-ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:21:17-71
+ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:22:17-71
 	android:name
-		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:21:25-68
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:22:25-68
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:24:13-27:29
+ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:25:13-28:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:25:17-69
+ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:26:17-69
 	android:name
-		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:25:25-66
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:26:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:26:17-77
+ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:27:17-77
 	android:name
-		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:26:27-74
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:27:27-74
 activity#com.example.checklistapp.ChecklistActivity
-ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:30:9-37:20
+ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:31:9-39:20
 	android:parentActivityName
-		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:32:13-55
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:33:13-55
 	android:label
-		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:33:13-29
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:34:13-29
+	android:windowSoftInputMode
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:35:13-52
 	android:name
-		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:31:13-46
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:32:13-46
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:34:13-36:49
+ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:36:13-38:49
 	android:value
-		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:36:17-46
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:38:17-46
 	android:name
-		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:35:17-63
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:37:17-63
+meta-data#com.google.android.gms.ads.APPLICATION_ID
+ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:40:9-42:70
+	android:value
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:42:13-67
+	android:name
+		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:41:13-69
 uses-sdk
 INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
@@ -124,8 +163,6 @@ MERGED from [com.google.android.material:material:1.2.0] C:\Users\gabry\.gradle\
 MERGED from [com.google.android.material:material:1.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d776e52f087aabc381b0b4907fc988e8\material-1.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\f209091eb3926c649f0b3346884e478c\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\f209091eb3926c649f0b3346884e478c\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\75baa063235eedb7ab2cc635bdb88d73\constraintlayout-1.1.3\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\75baa063235eedb7ab2cc635bdb88d73\constraintlayout-1.1.3\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.recyclerview:recyclerview-selection:1.1.0-rc01] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\2706fdf12c961096dbc61a5ec4b35cef\recyclerview-selection-1.1.0-rc01\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.recyclerview:recyclerview-selection:1.1.0-rc01] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\2706fdf12c961096dbc61a5ec4b35cef\recyclerview-selection-1.1.0-rc01\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\65b26ec11e574f5d68d3fe93c8217bcb\jetified-viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
@@ -134,8 +171,28 @@ MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\gabry\.gradle\ca
 MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\6e57c04e98c372fcd8878b95a3d5645d\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\ffb6a67829fa40d4c0493cb7e147e8f7\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\ffb6a67829fa40d4c0493cb7e147e8f7\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d84d41e230be248f125173e9d370b015\jetified-play-services-ads-19.4.0\AndroidManifest.xml:21:5-23:52
+MERGED from [com.google.android.gms:play-services-ads:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d84d41e230be248f125173e9d370b015\jetified-play-services-ads-19.4.0\AndroidManifest.xml:21:5-23:52
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d65cb7c8efed3ac0d87582c278bb8c7e\browser-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d65cb7c8efed3ac0d87582c278bb8c7e\browser-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\f5ec57ec49d0a3e9add695de66a9078c\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\f5ec57ec49d0a3e9add695de66a9078c\legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\7c0677be8011741026309ef690a9f4db\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\7c0677be8011741026309ef690a9f4db\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-gass:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\21148f8c0d551cf14eacf4efde99230e\jetified-play-services-gass-19.4.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-gass:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\21148f8c0d551cf14eacf4efde99230e\jetified-play-services-gass-19.4.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\346d5a4de9de9f191c81a5b0fc989c75\jetified-play-services-ads-identifier-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\346d5a4de9de9f191c81a5b0fc989c75\jetified-play-services-ads-identifier-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\6b52bd19d511456e0c595c26a8fd2a48\jetified-play-services-measurement-sdk-api-17.2.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\6b52bd19d511456e0c595c26a8fd2a48\jetified-play-services-measurement-sdk-api-17.2.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\b6c62fbc96c361f320b4c53b3f2d4325\jetified-play-services-tasks-17.1.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\b6c62fbc96c361f320b4c53b3f2d4325\jetified-play-services-tasks-17.1.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\dfb0663bbf14d8ecabead99aa92d9e12\jetified-play-services-measurement-base-17.2.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\dfb0663bbf14d8ecabead99aa92d9e12\jetified-play-services-measurement-base-17.2.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\e3f6df6a2f405844b8008c633f7822ac\jetified-play-services-basement-17.3.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\e3f6df6a2f405844b8008c633f7822ac\jetified-play-services-basement-17.3.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\12c076570219bdc2a11e9d0df335391a\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\12c076570219bdc2a11e9d0df335391a\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\23f12b0a995277db82a9d4b860245889\jetified-appcompat-resources-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -152,34 +209,52 @@ MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\gabry\.gradl
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\0878a65179abd6a1b5016c6981bce614\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\ebc8011c39d26c440b76466a9b971345\viewpager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\ebc8011c39d26c440b76466a9b971345\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\aa2f1cd22069a9bb65f1845d902d729f\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\aa2f1cd22069a9bb65f1845d902d729f\slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d1ea25f3382273eed14315b543469208\customview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d1ea25f3382273eed14315b543469208\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\18f5c1f0dcc08504bb6a1709d838cf6b\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\18f5c1f0dcc08504bb6a1709d838cf6b\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\2118a7099009bdd29f0289728ee82c0d\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\2118a7099009bdd29f0289728ee82c0d\loader-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\f52c60a67eb4c2183a64b296ae574169\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\f52c60a67eb4c2183a64b296ae574169\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\a083b9190df6cd0b2eed1b8d83acb3d5\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\a083b9190df6cd0b2eed1b8d83acb3d5\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\f1f8381ec1e1c3f6b165a08612cfd883\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\f1f8381ec1e1c3f6b165a08612cfd883\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\4527d81fa1dab2c4adef56282f6f51b4\core-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\4527d81fa1dab2c4adef56282f6f51b4\core-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\67aa86ef8808cac41aa5afe6d271f3ea\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\67aa86ef8808cac41aa5afe6d271f3ea\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\bcf856ddfeb04b3b73ed182739910d39\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\bcf856ddfeb04b3b73ed182739910d39\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\098c479f6892902db16f6d5e04f3818b\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\098c479f6892902db16f6d5e04f3818b\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\8cf26fd0d5f767ad6dfe1019ab25b952\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\8cf26fd0d5f767ad6dfe1019ab25b952\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\86f8c8e32c7613bbe5e86eb4377e9413\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\86f8c8e32c7613bbe5e86eb4377e9413\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\bcf856ddfeb04b3b73ed182739910d39\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\bcf856ddfeb04b3b73ed182739910d39\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\c6f1e76c078a7e4f5288325854cab247\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\c6f1e76c078a7e4f5288325854cab247\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\7282e00d74c6a6acf53f4bfd68421266\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\7282e00d74c6a6acf53f4bfd68421266\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\73114719268a97e9fd391905563b2ee9\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\73114719268a97e9fd391905563b2ee9\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\7bcdab9edca68925f6bcb92ddd8a20de\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\7bcdab9edca68925f6bcb92ddd8a20de\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d711f81259436f09ffdf0b48105165e3\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d711f81259436f09ffdf0b48105165e3\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\87e4a5cb4839ebd5d033fa0ae6227780\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\87e4a5cb4839ebd5d033fa0ae6227780\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\1e0614212b25f4ae67724a3587ed8129\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\1e0614212b25f4ae67724a3587ed8129\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-ads-base:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\372bf407356eb23d69ce9e79d2ca8b68\jetified-play-services-ads-base-19.4.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-ads-base:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\372bf407356eb23d69ce9e79d2ca8b68\jetified-play-services-ads-base-19.4.0\AndroidManifest.xml:5:5-44
 INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.google.android.gms:play-services-ads:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\d84d41e230be248f125173e9d370b015\jetified-play-services-ads-19.4.0\AndroidManifest.xml:23:9-49
 	android:targetSdkVersion
 		INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
 		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
@@ -188,3 +263,53 @@ INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidMani
 		INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
 		ADDED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\6b52bd19d511456e0c595c26a8fd2a48\jetified-play-services-measurement-sdk-api-17.2.0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\6b52bd19d511456e0c595c26a8fd2a48\jetified-play-services-measurement-sdk-api-17.2.0\AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:23:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\6b52bd19d511456e0c595c26a8fd2a48\jetified-play-services-measurement-sdk-api-17.2.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\6b52bd19d511456e0c595c26a8fd2a48\jetified-play-services-measurement-sdk-api-17.2.0\AndroidManifest.xml:24:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:24:22-76
+activity#com.google.android.gms.ads.AdActivity
+ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:29:9-33:64
+	android:exported
+		ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:32:13-37
+	android:configChanges
+		ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:31:13-122
+	android:theme
+		ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:33:13-61
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:30:13-65
+provider#com.google.android.gms.ads.MobileAdsInitProvider
+ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:35:9-39:39
+	android:authorities
+		ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:37:13-73
+	android:exported
+		ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:38:13-37
+	android:initOrder
+		ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:39:13-36
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:36:13-76
+service#com.google.android.gms.ads.AdService
+ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:41:9-44:40
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:43:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:44:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:42:13-64
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\6b52bd19d511456e0c595c26a8fd2a48\jetified-play-services-measurement-sdk-api-17.2.0\AndroidManifest.xml:25:5-68
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\6b52bd19d511456e0c595c26a8fd2a48\jetified-play-services-measurement-sdk-api-17.2.0\AndroidManifest.xml:25:22-65
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\e3f6df6a2f405844b8008c633f7822ac\jetified-play-services-basement-17.3.0\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\e3f6df6a2f405844b8008c633f7822ac\jetified-play-services-basement-17.3.0\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\e3f6df6a2f405844b8008c633f7822ac\jetified-play-services-basement-17.3.0\AndroidManifest.xml:24:13-58

@@ -17,6 +17,9 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import static com.example.checklistapp.MainActivity.INTENT_TITLE_KEY;
 import static com.example.checklistapp.MainActivity.INTENT_CHECKBOXES_STATUS_KEY;
 import static com.example.checklistapp.MainActivity.INTENT_TASK_KEY;
@@ -64,6 +67,13 @@ public class ChecklistActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(checklistAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        AdView adView = (AdView) findViewById(R.id.adView);
+
+        AdRequest adRequest = new AdRequest.Builder()
+                .build();
+
+        adView.loadAd(adRequest);
     }
 
     /**

@@ -11,7 +11,8 @@
         android:theme="@style/Theme.AppCompat">
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustPan">
 
             <meta-data
                 android:name="android.app.searchable"
@@ -30,11 +31,15 @@
         <activity
             android:name=".ChecklistActivity"
             android:parentActivityName=".MainActivity"
-            android:label="">
+            android:label=""
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-7262844858835553~1508558641" />
     </application>
 
 </manifest>

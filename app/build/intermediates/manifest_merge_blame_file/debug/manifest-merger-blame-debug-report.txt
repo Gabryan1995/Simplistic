@@ -10,69 +10,129 @@
 9        android:targetSdkVersion="29" />
 9-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml
 10
-11    <application
-11-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:5:5-38:19
-12        android:allowBackup="true"
-12-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:6:9-35
-13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\4527d81fa1dab2c4adef56282f6f51b4\core-1.2.0\AndroidManifest.xml:24:18-86
-14        android:debuggable="true"
-15        android:icon="@mipmap/ic_launcher"
-15-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:7:9-43
-16        android:label="@string/app_name"
-16-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:9:9-41
-17        android:roundIcon="@mipmap/ic_launcher_round"
-17-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:8:9-54
-18        android:supportsRtl="true"
-18-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:10:9-35
-19        android:testOnly="true"
-20        android:theme="@style/Theme.AppCompat" >
-20-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:11:9-47
-21        <activity
-21-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:12:9-28:20
-22            android:name="com.example.checklistapp.MainActivity"
-22-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:13:13-41
-23            android:launchMode="singleTop" >
-23-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:14:13-43
-24            <meta-data
-24-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:16:13-18:54
-25                android:name="android.app.searchable"
-25-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:17:17-54
-26                android:resource="@xml/searchable" />
-26-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:18:17-51
-27
-28            <intent-filter>
-28-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:20:13-22:29
-29                <action android:name="android.intent.action.SEARCH" />
-29-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:21:17-71
-29-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:21:25-68
-30            </intent-filter>
-31            <intent-filter>
-31-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:24:13-27:29
-32                <action android:name="android.intent.action.MAIN" />
-32-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:25:17-69
-32-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:25:25-66
+11    <!-- Include required permissions for Google Mobile Ads to run -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:23:5-67
+12-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:23:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:24:5-79
+13-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:24:22-76
+14    <uses-permission android:name="android.permission.WAKE_LOCK" />
+14-->[com.google.android.gms:play-services-measurement-sdk-api:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\6b52bd19d511456e0c595c26a8fd2a48\jetified-play-services-measurement-sdk-api-17.2.0\AndroidManifest.xml:25:5-68
+14-->[com.google.android.gms:play-services-measurement-sdk-api:17.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\6b52bd19d511456e0c595c26a8fd2a48\jetified-play-services-measurement-sdk-api-17.2.0\AndroidManifest.xml:25:22-65
+15
+16    <application
+16-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:5:5-43:19
+17        android:allowBackup="true"
+17-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:6:9-35
+18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+18-->[androidx.core:core:1.2.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\4527d81fa1dab2c4adef56282f6f51b4\core-1.2.0\AndroidManifest.xml:24:18-86
+19        android:debuggable="true"
+20        android:icon="@mipmap/ic_launcher"
+20-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:7:9-43
+21        android:label="@string/app_name"
+21-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:9:9-41
+22        android:roundIcon="@mipmap/ic_launcher_round"
+22-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:8:9-54
+23        android:supportsRtl="true"
+23-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:10:9-35
+24        android:testOnly="true"
+25        android:theme="@style/Theme.AppCompat" >
+25-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:11:9-47
+26        <activity
+26-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:12:9-29:20
+27            android:name="com.example.checklistapp.MainActivity"
+27-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:13:13-41
+28            android:launchMode="singleTop"
+28-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:14:13-43
+29            android:windowSoftInputMode="adjustPan" >
+29-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:15:13-52
+30            <meta-data
+30-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:17:13-19:54
+31                android:name="android.app.searchable"
+31-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:18:17-54
+32                android:resource="@xml/searchable" />
+32-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:19:17-51
 33
-34                <category android:name="android.intent.category.LAUNCHER" />
-34-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:26:17-77
-34-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:26:27-74
-35            </intent-filter>
-36        </activity>
-37        <activity
-37-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:30:9-37:20
-38            android:name="com.example.checklistapp.ChecklistActivity"
-38-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:31:13-46
-39            android:label=""
-39-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:33:13-29
-40            android:parentActivityName="com.example.checklistapp.MainActivity" >
-40-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:32:13-55
-41            <meta-data
-41-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:34:13-36:49
-42                android:name="android.support.PARENT_ACTIVITY"
-42-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:35:17-63
-43                android:value=".MainActivity" />
-43-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:36:17-46
-44        </activity>
-45    </application>
-46
-47</manifest>
+34            <intent-filter>
+34-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:21:13-23:29
+35                <action android:name="android.intent.action.SEARCH" />
+35-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:22:17-71
+35-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:22:25-68
+36            </intent-filter>
+37            <intent-filter>
+37-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:25:13-28:29
+38                <action android:name="android.intent.action.MAIN" />
+38-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:26:17-69
+38-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:26:25-66
+39
+40                <category android:name="android.intent.category.LAUNCHER" />
+40-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:27:17-77
+40-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:27:27-74
+41            </intent-filter>
+42        </activity>
+43        <activity
+43-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:31:9-39:20
+44            android:name="com.example.checklistapp.ChecklistActivity"
+44-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:32:13-46
+45            android:label=""
+45-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:34:13-29
+46            android:parentActivityName="com.example.checklistapp.MainActivity"
+46-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:33:13-55
+47            android:windowSoftInputMode="adjustPan" >
+47-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:35:13-52
+48            <meta-data
+48-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:36:13-38:49
+49                android:name="android.support.PARENT_ACTIVITY"
+49-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:37:17-63
+50                android:value=".MainActivity" />
+50-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:38:17-46
+51        </activity>
+52
+53        <meta-data
+53-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:40:9-42:70
+54            android:name="com.google.android.gms.ads.APPLICATION_ID"
+54-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:41:13-69
+55            android:value="ca-app-pub-7262844858835553~1508558641" />
+55-->C:\Users\gabry\AndroidApps\To-Do_List_App\app\src\main\AndroidManifest.xml:42:13-67
+56        <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+57        <activity
+57-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:29:9-33:64
+58            android:name="com.google.android.gms.ads.AdActivity"
+58-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:30:13-65
+59            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+59-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:31:13-122
+60            android:exported="false"
+60-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:32:13-37
+61            android:theme="@android:style/Theme.Translucent" />
+61-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:33:13-61
+62
+63        <provider
+63-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:35:9-39:39
+64            android:name="com.google.android.gms.ads.MobileAdsInitProvider"
+64-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:36:13-76
+65            android:authorities="com.example.checklistapp.mobileadsinitprovider"
+65-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:37:13-73
+66            android:exported="false"
+66-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:38:13-37
+67            android:initOrder="100" />
+67-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:39:13-36
+68
+69        <service
+69-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:41:9-44:40
+70            android:name="com.google.android.gms.ads.AdService"
+70-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:42:13-64
+71            android:enabled="true"
+71-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:43:13-35
+72            android:exported="false" />
+72-->[com.google.android.gms:play-services-ads-lite:19.4.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\01ace51ffd8fa6648b5abe7d3273bf04\jetified-play-services-ads-lite-19.4.0\AndroidManifest.xml:44:13-37
+73
+74        <meta-data
+74-->[com.google.android.gms:play-services-basement:17.3.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\e3f6df6a2f405844b8008c633f7822ac\jetified-play-services-basement-17.3.0\AndroidManifest.xml:23:9-25:69
+75            android:name="com.google.android.gms.version"
+75-->[com.google.android.gms:play-services-basement:17.3.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\e3f6df6a2f405844b8008c633f7822ac\jetified-play-services-basement-17.3.0\AndroidManifest.xml:24:13-58
+76            android:value="@integer/google_play_services_version" />
+76-->[com.google.android.gms:play-services-basement:17.3.0] C:\Users\gabry\.gradle\caches\transforms-2\files-2.1\e3f6df6a2f405844b8008c633f7822ac\jetified-play-services-basement-17.3.0\AndroidManifest.xml:25:13-66
+77    </application>
+78
+79</manifest>
