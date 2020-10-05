@@ -13,12 +13,11 @@
 
 **Simplistic Demo:**
 
-<img src="Images/Screenshot_1.jpg" height="500">
-
-![](Images/Screenshot_2.jpg)
-![](Images/Screenshot_3.jpg)
-![](Images/Screenshot_4.jpg)
-![](Images/Screenshot_5.jpg)
-![](Images/Screenshot_6.jpg)
-![](Images/Screenshot_7.jpg)
-![](Images/Screenshot_8.jpg)
+<img src="Images/Screenshot_1.jpg" height="400">
+<img src="Images/Screenshot_2.jpg" height="400">
+<img src="Images/Screenshot_3.jpg" height="400">
+<img src="Images/Screenshot_4.jpg" height="400">
+<img src="Images/Screenshot_5.jpg" height="400">
+<img src="Images/Screenshot_6.jpg" height="400">
+<img src="Images/Screenshot_7.jpg" height="400">
+<img src="Images/Screenshot_8.jpg" height="400">
