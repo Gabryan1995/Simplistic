@@ -13,7 +13,7 @@
 
 **Simplistic Demo:**
 
-<img src="Images/Screenshot_1.jpg" height="100">
+<img src="Images/Screenshot_1.jpg" height="500">
 
 ![](Images/Screenshot_2.jpg)
 ![](Images/Screenshot_3.jpg)
