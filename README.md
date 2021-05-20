@@ -1,5 +1,5 @@
 # Simplistic
-## This is my simple Checklist app. I understand now that I could have used the MVVM architecture to clean up the code quite a bit. If I had used MVVM architecture, I would've put each checklist's data inside of the database, communicated between the database and a Checklist Data Accessable Object interface to then use LiveData as a way to bring that data to my UI and attach it to my custom view and layouts, but instead I opted to use JSON since it's something I have little to no experience using.
+## This is my simple Checklist app. I understand that I could have used the MVVM architecture to clean up the code. If I had used MVVM architecture, I would've stored each checklist's data inside the database, communicated between the database and a Checklist Data Accessable Object interface to then use LiveData as a way to bring that data to my UI and attach it to my custom view and layouts, but instead I opted to use JSON since it's something I have little to no experience using.
 
 ## This app demonstrates my knowledge of the following Java and Android System APIs:
 - *RecyclerViews*
